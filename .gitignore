@@ -1,0 +1,4 @@
+/www/node_modules
+/apt/node_modules
+/api/node_modules
+.env
