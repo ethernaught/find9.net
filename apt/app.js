@@ -4,8 +4,11 @@ const fs = require('fs');
 const rateLimit = require('express-rate-limit');
 const session = require('express-session');
 const cookies = require('cookie-parser');
+const multer = require('multer')({ dest: 'uploads/' });
 require('dotenv').config();
 //const middleware = require('./modules/middleware');
+
+const uploadController = require('./controllers/upload');
 
 const app = express();
 
@@ -15,6 +18,8 @@ const app = express();
 app.use(express.static('./public'));
 
 //app.get('/', mainController.getHome);
+
+app.post('/uploads', multer.single('package'), express.json(), uploadController.post);
 
 app.get('*', (req, res) => {
 	res.json({
