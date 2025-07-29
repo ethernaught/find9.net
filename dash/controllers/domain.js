@@ -65,7 +65,7 @@ exports.getDomain = (req, res) => {
         page: `/domain/${req.params.domain}`,
         uniqid: uuidv4,
         styles: [
-            'table',
+            'domain',
             'home'
         ],
         data: {

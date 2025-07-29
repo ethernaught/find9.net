@@ -199,6 +199,12 @@ sidebar {
     min-height: calc(100vh - var(--top) - 15px);
     font-size: 0.8rem;
     overflow: auto;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
 }
 
 

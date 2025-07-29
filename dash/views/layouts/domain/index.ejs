@@ -6,18 +6,20 @@
                     <h3><%= data.domain %></h3>
                 </header>
 
-                <input id='a' name='graph' type='radio' item='0'>
+                <input id='a' name='graph' type='radio' item='0' checked>
                 <input id='b' name='graph' type='radio' item='1'>
                 <input id='c' name='graph' type='radio' item='2'>
 
-                <label for='a' item='0'>24 Hours</label>
-                <label for='b' item='1'>7 Days</label>
-                <label for='b' item='2'>30 Days</label>
+                <radio-header>
+                    <label for='a' item='0'>24 Hours</label>
+                    <label for='b' item='1'>7 Days</label>
+                    <label for='c' item='2'>30 Days</label>
+                </radio-header>
 
-                <section item-id='a' item='0'>
+                <radio-section item-id='a' item='0'>
 
 
-                </section>
+                </radio-section>
 
             </content>
 
