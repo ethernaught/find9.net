@@ -53,9 +53,7 @@ app.use((req, res, next) => {
 app.use(useragent.express());
 
 
-
-
-app.use('/domain', domainController.getSideBar);
+app.use('/domain/:domain', domainController.getSideBar);
 app.get('/domain/:domain', domainController.getDomain);
 
 app.use('*', mainController.getSideBar);

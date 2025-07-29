@@ -167,8 +167,7 @@ body > header li input[type='text'] {
     outline: none;
 }
 
-body > header li search:focus-within,
-        body > header li search:hover {
+body > header li search:focus-within {
     border: solid 1px var(--primary);
 }
 
@@ -198,6 +197,7 @@ sidebar {
     display: block;
     width: var(--sidebar);
     min-height: calc(100vh - var(--top) - 15px);
+    font-size: 0.8rem;
     overflow: auto;
 }
 
@@ -216,7 +216,7 @@ sidebar li {
 
 sidebar li ul {
     display: block;
-    padding-left: 15px;
+    padding-left: calc(10px + 1rem);
 }
 
 sidebar li a {
@@ -227,16 +227,32 @@ sidebar li a {
     border-radius: 30px;
 }
 
+sidebar > ul li a {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+sidebar li a svg {
+    display: block;
+    height: 1rem;
+    fill: var(--text-secondary);
+}
+
 sidebar li a[selected] {
     background-color: var(--primary);
 }
 
-sidebar li a:not([selected]):hover {
-    background-color: var(--background-shimmer);
+sidebar li a[selected] svg {
+    fill: var(--text-primary);
 }
 
 sidebar li a[selected] {
     color: var(--text-primary);
+}
+
+sidebar li a:not([selected]):hover {
+    background-color: var(--background-shimmer);
 }
 
 
