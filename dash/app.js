@@ -52,8 +52,15 @@ app.use((req, res, next) => {
 
 app.use(useragent.express());
 
-app.get('/', mainController.getHome);
+
+
+
+app.use('/domain', domainController.getSideBar);
 app.get('/domain/:domain', domainController.getDomain);
+
+app.use('*', mainController.getSideBar);
+app.get('/', mainController.getHome);
+
 
 app.get('*', (req, res) => {
 	mainController.getError(req, res, 404);
