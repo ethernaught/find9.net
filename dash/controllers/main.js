@@ -1,8 +1,6 @@
 const { v4: uuidv4 } = require('uuid');
 
 exports.getSideBar = (req, res, next) => {
-    console.log('SIDE BAR MAIN');
-
     res.locals.sidebar = [
         {
             title: 'Home',
