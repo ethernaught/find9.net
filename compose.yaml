@@ -39,13 +39,31 @@ services:
     #profiles:
     #  - donotstart
 
+  dash:
+    build:
+      context: ./dash
+    image: find9_dash
+    container_name: dash
+    ports:
+      - 8001:80
+    environment:
+      NODE_ENV: production
+    restart: always
+    volumes:
+      - ./.env:/usr/src/app/.env
+      - ./modules:/usr/src/app/modules
+    networks:
+      - lan
+    #profiles:
+    #  - donotstart
+
   forum:
     build:
       context: ./forum
     image: find9_forum
     container_name: forum
     ports:
-      - 8001:80
+      - 8002:80
     environment:
       NODE_ENV: production
     restart: always
@@ -63,7 +81,25 @@ services:
     image: find9_api
     container_name: api
     ports:
-      - 8002:80
+      - 8005:80
+    environment:
+      NODE_ENV: production
+    restart: always
+    volumes:
+      - ./.env:/usr/src/app/.env
+      - ./modules:/usr/src/app/modules
+    networks:
+      - lan
+    profiles:
+      - donotstart
+
+  apt:
+    build:
+      context: ./apt
+    image: find9_apt
+    container_name: apt
+    ports:
+      - 8005:80
     environment:
       NODE_ENV: production
     restart: always

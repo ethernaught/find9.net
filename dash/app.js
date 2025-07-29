@@ -51,8 +51,7 @@ app.use((req, res, next) => {
 
 app.use(useragent.express());
 
-//app.get('/', mainController.get home);
-//app.get('/portal', mainController.getPortal);
+app.get('/', mainController.getHome);
 
 app.get('*', (req, res) => {
 	mainController.getError(req, res, 404);
@@ -61,5 +60,5 @@ app.get('*', (req, res) => {
 const server = http.createServer(app);
 
 server.listen(80, () => {
-	console.log(`${process.env.DOMAIN} started`);
+	console.log(`dash.${process.env.DOMAIN} started`);
 });
