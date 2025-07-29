@@ -11,6 +11,7 @@ radio-header {
 radio-header label {
     display: block;
     text-decoration: underline;
+    color: var(--text-secondary);
     cursor: pointer;
     -webkit-touch-callout: none;
     -webkit-user-select: none;
@@ -21,7 +22,7 @@ radio-header label {
 }
 
 radio-section {
-    display: block;
+    display: none;
 }
 
 content input[type='radio'][item='0']:checked ~ radio-header label[item='0'],
@@ -29,4 +30,11 @@ content input[type='radio'][item='0']:checked ~ radio-header label[item='0'],
         content input[type='radio'][item='2']:checked ~ radio-header label[item='2'],
         content input[type='radio'][item='3']:checked ~ radio-header label[item='3'] {
     color: var(--primary);
+}
+
+content input[type='radio'][item='0']:checked ~ radio-section[item='0'],
+        content input[type='radio'][item='1']:checked ~ radio-section[item='1'],
+        content input[type='radio'][item='2']:checked ~ radio-section[item='2'],
+        content input[type='radio'][item='3']:checked ~ radio-section[item='3'] {
+    display: block;
 }
