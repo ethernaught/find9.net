@@ -290,7 +290,7 @@ footer nav div[type='social'] a:hover svg {
 footer title {
     display: block;
     color: var(--text-primary);
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 

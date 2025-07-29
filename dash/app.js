@@ -11,6 +11,7 @@ global.mongo = require('./modules/mongo');
 require('dotenv').config();
 
 const mainController = require('./controllers/main');
+const domainController = require('./controllers/domain');
 
 const app = express();
 
@@ -52,6 +53,7 @@ app.use((req, res, next) => {
 app.use(useragent.express());
 
 app.get('/', mainController.getHome);
+app.get('/domain/:domain', domainController.getDomain);
 
 app.get('*', (req, res) => {
 	mainController.getError(req, res, 404);

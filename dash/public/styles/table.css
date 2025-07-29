@@ -1,0 +1,65 @@
+fl-table {
+    display: block;
+    width: 100%;
+    font-size: 1rem;
+}
+
+fl-head {
+    display: block;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+
+fl-body {
+    display: block;
+    /*min-height: calc(100vh - 403px);*/
+}
+
+fl-table row {
+    display: flex;
+    width: calc(100% - 20px);
+    padding: 10px;
+    align-items: center;
+    align-content: center;
+    gap: 10px;
+    border-bottom: solid 1px var(--background-shimmer);
+}
+
+fl-table cell {
+    display: block;
+}
+
+fl-head cell, fl-body cell {
+    min-width: 100px;
+    flex: 1 0 100px;
+}
+
+fl-body cell a {
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+fl-body cell a:hover {
+    text-decoration: underline;
+}
+
+fl-body cell svg {
+    display: block;
+    width: 150px;
+    height: 20px;
+    fill: var(--primary-transparent);
+    stroke: var(--primary);
+}
+
+error {
+    display: none;
+    text-align: center;
+    font-size: 2rem;
+    margin: 40px auto;
+}
+
+error:not(:empty) {
+	display: block;
+}

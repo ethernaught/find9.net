@@ -1,0 +1,33 @@
+<%- include('../fragments/header') %>
+
+            <content>
+                <header>
+                    <h1>Home</h1>
+                    <h3>DrBrads Account</h3>
+                </header>
+
+                <fl-table>
+                    <fl-head>
+                        <row>
+                            <cell>Domain</cell>
+                            <cell>Status</cell>
+                            <cell>Unique Visitors</cell>
+                        </row>
+                    </fl-head>
+                    <fl-body>
+                        <row>
+                            <cell>
+                                <a href='/domain/find9.net'>find9.net</a>
+                            </cell>
+                            <cell>Active</cell>
+                            <cell>
+                                <svg viewBox='0 0 150 20'>
+                                    <path d='M-1 20 l1 -1 l19 -4 l132 -10 v16 h-152' />
+                                </svg>
+                            </cell>
+                        </row>
+                    </fl-body>
+                </fl-table>
+            </content>
+
+<%- include('../fragments/footer') %>

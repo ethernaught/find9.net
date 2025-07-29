@@ -5,6 +5,7 @@
     --sidebar: 250px;
 
     --primary: #994ce0;
+    --primary-transparent: #994ce030;
     --secondary: #6b339e;
 
     --background: #242424;
@@ -58,7 +59,7 @@ body {
 }
 
 
-header {
+body > header {
     position: fixed;
     top: 0;
 	width: 100%;
@@ -77,7 +78,7 @@ nav {
     white-space: nowrap;
 }
 
-header ul {
+body > header ul {
     display: flex;
     height: var(--top);
     align-items: center;
@@ -86,16 +87,16 @@ header ul {
     margin: 0 auto;
 }
 
-header li {
+body > header li {
     display: inline-block;
 }
 
-header li[selected] {
+body > header li[selected] {
     background-color: var(--text-secondary);
 }
 
-header li a,
-        header li label.header {
+body > header li a,
+        body > header li label.header {
     position: relative;
     display: inline-block;
     height: 30px;
@@ -108,11 +109,11 @@ header li a,
     cursor: pointer;
 }
 
-header li.home {
+body > header li.home {
     width: calc(var(--sidebar) + 15px);
 }
 
-header li.home a {
+body > header li.home a {
     display: flex;
     gap: 5px;
     align-items: center;
@@ -120,12 +121,12 @@ header li.home a {
     font-size: 1.5rem;
 }
 
-header li.home a img {
+body > header li.home a img {
     display: inline-block;
     height: 1.5rem;
 }
 
-header li.button a {
+body > header li.button a {
     padding: 10px 15px;
     border-radius: 5px;
     color: var(--text-primary);
@@ -133,11 +134,11 @@ header li.button a {
     transition: background-color 0.3s;
 }
 
-header li.button a:hover {
+body > header li.button a:hover {
     background-color: var(--secondary);
 }
 
-header li search {
+body > header li search {
     display: flex;
     width: 600px;
     padding: 0 20px;
@@ -148,14 +149,14 @@ header li search {
     border-radius: 40px;
 }
 
-header li search svg {
+body > header li search svg {
     display: block;
     width: 1.2rem;
     height: 1.2rem;
     fill: var(--text-primary);
 }
 
-header li input[type='text'] {
+body > header li input[type='text'] {
     display: block;
     flex: 1;
     font-size: 1rem;
@@ -166,8 +167,8 @@ header li input[type='text'] {
     outline: none;
 }
 
-header li search:focus-within,
-        header li search:hover {
+body > header li search:focus-within,
+        body > header li search:hover {
     border: solid 1px var(--primary);
 }
 
@@ -203,7 +204,6 @@ sidebar {
 
 sidebar ul {
     display: flex;
-    height: var(--top);
     flex-direction: column;
     column-gap: 10px;
     padding: 0;
@@ -212,7 +212,11 @@ sidebar ul {
 
 sidebar li {
     display: block;
-    border-radius: 30px;
+}
+
+sidebar li ul {
+    display: block;
+    padding-left: 15px;
 }
 
 sidebar li a {
@@ -220,32 +224,45 @@ sidebar li a {
     padding: 10px 15px;
     color: var(--text-secondary);
     text-decoration: none;
+    border-radius: 30px;
 }
 
-sidebar li[selected] {
+sidebar li a[selected] {
     background-color: var(--primary);
 }
 
-sidebar li:not([selected]):hover {
+sidebar li a:not([selected]):hover {
     background-color: var(--background-shimmer);
 }
 
-sidebar li[selected] a {
+sidebar li a[selected] {
     color: var(--text-primary);
 }
 
 
 
 content {
-    display: block;
+    display: flex;
     flex: 1;
-    min-height: calc(100vh - var(--top) - 15px);
+    flex-direction: column;
+    gap: 20px;
+    min-height: calc(100vh - var(--top) - 55px);
     background-color: var(--background-secondary);
+    padding: 20px;
     border-radius: 20px;
     overflow: hidden;
 }
 
+content h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
 
+content h1 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+}
 
 
 
@@ -296,7 +313,7 @@ footer nav div[type='social'] a:hover svg {
 footer title {
     display: block;
     color: var(--text-primary);
-    font-weight: bold;
+    font-weight: 700;
     margin-bottom: 10px;
 }
 

@@ -2,7 +2,7 @@
 <html>
     <head>
         <meta charset='utf-8'>
-        <title><%= process.env.PROJECT_NAME %></title>
+        <title><%= title %></title>
         <link rel='shortcut icon' href='/favico.svg'>
         <link rel='stylesheet' href='/styles/main.css'>
 <%
@@ -46,16 +46,35 @@
         <section>
             <sidebar>
                 <ul>
-                    <li selected>
-                        <a href='/'>Home</a>
-                    </li>
+<%
+    for(const item of sidebar){
+%>
                     <li>
-                        <a href='/analytics'>Analytics & Logs</a>
+<%
+        if(item.sub){
+%>
+                        <a href='<%= item.sub[0].page %>'<% if(item.page == page){ %> selected<% } %>><%= item.title %></a>
+                        <ul>
+<%
+            for(const sub of item.sub){
+%>
+                            <li>
+                                <a href='<%= sub.page %>'<% if(sub.page == page){ %> selected<% } %>><%= sub.title %></a>
+                            </li>
+<%
+            }
+%>
+                        </ul>
+<%
+        }else{
+%>
+                        <a href='<%= item.page %>'<% if(item.page == page){ %> selected<% } %>><%= item.title %></a>
+<%
+        }
+%>
                     </li>
-                    <li>
-                        <a href='/load-balancing'>Load Balancing</a>
-                    </li>
+<%
+    }
+%>
                 </ul>
             </sidebar>
-
-            <content></content>
