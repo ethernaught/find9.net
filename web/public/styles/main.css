@@ -1,0 +1,334 @@
+:root {
+    --min-width: 800px;
+    --max-content-width: 1300px;
+    --top: 70px;
+    --sidebar: 250px;
+
+    --primary: #994ce0;
+    --secondary: #6b339e;
+
+    --background: #242424;
+    --background-secondary: #141414;
+    --background-shimmer: #343434;
+    
+    --text-primary: #e6e6e6;
+    --text-secondary: #b3b3b3;
+
+    --white: #efefef;
+    --black: #000000;
+    
+    --ripple: #666666;
+    --good: #53bd39;
+    --error: #f55442;
+}
+
+html {
+    color: var(--text-primary);
+    background-color: var(--background);
+    font-size: 1rem;
+    font-family: sans-serif;
+    scroll-behavior: smooth;
+    scrollbar-color: var(--primary) transparent;
+}
+
+::-webkit-scrollbar {
+	width: 3px;
+	height: 3px;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary);
+}
+
+::selection {
+    color: var(--black);
+    background: var(--primary);
+    text-shadow: none;
+}
+
+::-moz-selection {
+    color: var(--black);
+    background: var(--primary);
+    text-shadow: none;
+}
+
+body {
+    min-width: var(--min-width);
+    margin: 0;
+}
+
+
+header {
+    position: fixed;
+    top: 0;
+	width: 100%;
+    color: var(--text-primary);
+    z-index: 10;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+nav {
+    white-space: nowrap;
+}
+
+header ul {
+    display: flex;
+    height: var(--top);
+    align-items: center;
+    column-gap: 20px;
+    padding: 0;
+    margin: 0 auto;
+}
+
+header li {
+    display: inline-block;
+}
+
+header li[selected] {
+    background-color: var(--text-secondary);
+}
+
+header li a,
+        header li label.header {
+    position: relative;
+    display: inline-block;
+    height: 30px;
+    line-height: 30px;
+    color: var(--text-primary);
+    padding: 15px;
+    text-decoration: none;
+    z-index: 2;
+    transition: background-color 0.2s;
+    cursor: pointer;
+}
+
+header li.home {
+    width: calc(var(--sidebar) + 15px);
+}
+
+header li.home a {
+    display: flex;
+    gap: 5px;
+    align-items: center;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+header li.home a img {
+    display: inline-block;
+    height: 1.5rem;
+}
+
+header li.button a {
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: var(--text-primary);
+    background-color: var(--primary);
+    transition: background-color 0.3s;
+}
+
+header li.button a:hover {
+    background-color: var(--secondary);
+}
+
+header li search {
+    display: flex;
+    width: 600px;
+    padding: 15px 20px;
+    gap: 10px;
+    align-items: center;
+    background-color: var(--background-shimmer);
+    border: solid 1px var(--background);
+    border-radius: 40px;
+}
+
+header li search svg {
+    display: block;
+    width: 1.2rem;
+    height: 1.2rem;
+    fill: var(--text-primary);
+}
+
+header li input[type='text'] {
+    display: block;
+    flex: 1;
+    font-size: 1rem;
+    color: var(--text-primary);
+    background-color: transparent;
+    border: none;
+    outline: none;
+}
+
+header li search:focus-within,
+        header li search:hover {
+    border: solid 1px var(--primary);
+}
+
+
+
+
+
+filler {
+    flex: 1 1 1e-09px;
+}
+
+form {
+    margin: 0;
+}
+
+
+body > section {
+    display: flex;
+    position: relative;
+    top: var(--top);
+    width: calc(100% - 30px);
+    padding: 0 15px 15px 15px;
+    gap: 20px;
+}
+
+sidebar {
+    display: block;
+    width: var(--sidebar);
+    min-height: calc(100vh - var(--top) - 15px);
+}
+
+
+sidebar ul {
+    display: flex;
+    height: var(--top);
+    flex-direction: column;
+    column-gap: 10px;
+    padding: 0;
+    margin: 0;
+}
+
+sidebar li {
+    display: block;
+    border-radius: 30px;
+}
+
+sidebar li a {
+    display: block;
+    padding: 10px 15px;
+    color: var(--text-secondary);
+    text-decoration: none;
+}
+
+sidebar li[selected] {
+    background-color: var(--primary);
+}
+
+sidebar li:not([selected]):hover {
+    background-color: var(--background-shimmer);
+}
+
+
+
+content {
+    display: block;
+    flex: 1;
+    min-height: calc(100vh - var(--top) - 15px);
+    background-color: var(--background-secondary);
+    border-radius: 20px;
+    overflow: hidden;
+}
+
+
+
+
+
+
+
+footer {
+    position: relative;
+    display: flex;
+    top: var(--top);
+	width: calc(100% - 80px);
+	min-width: calc(var(--min-width) - 80px);
+    padding: 80px 40px 20px 40px;
+    font-size: 1rem;
+    background-color: var(--black);
+    border-top: solid 3px var(--primary);
+    align-items: center;
+    flex-direction: column;
+}
+
+footer nav {
+    display: flex;
+    width: 100%;
+    max-width: var(--max-content-width);
+    margin-bottom: 60px;
+}
+
+footer nav div {
+    flex: 1;
+}
+
+footer nav div[type='social'] {
+    display: flex;
+    gap: 20px;
+}
+
+footer nav div[type='social'] svg {
+    display: block;
+    width: 40px;
+    height: 40px;
+    fill: var(--text-primary);
+    transition: fill 0.3s;
+}
+
+footer nav div[type='social'] a:hover svg {
+    fill: var(--primary);
+}
+
+footer title {
+    display: block;
+    color: var(--text-primary);
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+footer ul {
+    display: block;
+    padding: 0;
+    margin: 0 auto;
+}
+
+footer li {
+    display: block;
+    padding: 2px 0;
+}
+
+footer li a {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    text-decoration: none;
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+footer li a:hover {
+    color: var(--primary);
+}
+
+footer year {
+    display: block;
+    width: 100%;
+    max-width: var(--max-content-width);
+    height: 30px;
+    padding-top: 20px;
+    color: var(--white);
+    border-top: solid 1px var(--white);
+    line-height: 30px;
+    font-size: 0.8rem;
+}
+
+footer year span {
+    color: var(--primary);
+}

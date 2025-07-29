@@ -1,7 +1,7 @@
 services:
   database:
     image: mongo
-    container_name: sectorrent_org_database
+    container_name: find9_database
     ports:
       - 27017:27017
     volumes:
@@ -18,14 +18,14 @@ services:
       - -c
       - |
         mongod --bind_ip_all
-    #profiles:
-    #  - donotstart
+    profiles:
+      - donotstart
 
   web:
     build:
-      context: ./www
-    image: sectorrent_org_www
-    container_name: www
+      context: ./web
+    image: find9_web
+    container_name: web
     ports:
       - 8000:80
     environment:
@@ -42,7 +42,7 @@ services:
   forum:
     build:
       context: ./forum
-    image: sectorrent_org_forum
+    image: find9_forum
     container_name: forum
     ports:
       - 8001:80
@@ -54,13 +54,13 @@ services:
       - ./modules:/usr/src/app/modules
     networks:
       - lan
-    #profiles:
-    #  - donotstart
+    profiles:
+      - donotstart
 
   api:
     build:
       context: ./api
-    image: sectorrent_org_api
+    image: find9_api
     container_name: api
     ports:
       - 8002:80
@@ -72,8 +72,8 @@ services:
       - ./modules:/usr/src/app/modules
     networks:
       - lan
-    #profiles:
-    #  - donotstart
+    profiles:
+      - donotstart
 
 networks:
   lan:
