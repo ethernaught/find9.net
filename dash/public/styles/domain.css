@@ -46,10 +46,10 @@ content input[type='radio'][item='0']:checked ~ radio-section[item='0'],
 radio-section div {
     display: flex;
     gap: 20px;
-    padding-bottom: 15px;
 }
 
 radio-section div:not(:last-child) {
+    padding-bottom: 15px;
     border-bottom: solid 1px var(--background-shimmer);
 }
 
