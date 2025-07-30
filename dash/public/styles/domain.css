@@ -54,7 +54,9 @@ radio-section div:not(:last-child) {
 }
 
 radio-section key {
-    display: block;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
     min-width: 200px;
 }
 

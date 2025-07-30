@@ -1,4 +1,8 @@
 <%- include('../../fragments/header') %>
+<%
+    const graphWidth = 240;
+    const graphHeight = 32;
+%>
 
             <content>
                 <header>
@@ -18,54 +22,51 @@
                     <span>JULY 22 - JULY 29</span>
                 </radio-header>
 
-                <radio-section item='0'>
+<%
+    const points = [];
+    for(const i in data.graph){
+%>
+                <radio-section item='<%= i %>'>
+<%
+        for(const d of data.graph[i].data){
+            points.push(d.points);
+%>
                     <div>
                         <key>
-                            <h2>Unique Visitors</h2>
-                            <h3>299</h3>
-                        </key>
-                        <svg viewBox='0 0 240 32'>
-                            <path d='M0 0 h240 v32 h-240' />
-                        </svg>
-                    </div>
-                    <div>
-                        <key>
-                            <h2>Total Requests</h2>
-                            <h3>299</h3>
-                        </key>
-                        <svg viewBox='0 0 240 32'>
-                            <path d='M0 0 h240 v32 h-240' />
-                        </svg>
-                    </div>
-                    <div>
-                        <key>
-                            <h2>Percent Cached</h2>
-                            <h3>1.05%</h3>
-                        </key>
-                        <svg viewBox='0 0 240 32'>
-                            <path d='M0 0 h240 v32 h-240' />
-                        </svg>
-                    </div>
-                    <div>
-                        <key>
-                            <h2>Total Data Served</h2>
-                            <h3>3 MB</h3>
-                        </key>
-                        <svg viewBox='0 0 240 32'>
-                            <path d='M0 0 h240 v32 h-240' />
-                        </svg>
-                    </div>
-                    <div>
-                        <key>
-                            <h2>Data Cached</h2>
-                            <h3>32 kB</h3>
-                        </key>
-                        <svg viewBox='0 0 240 32'>
-                            <path d='M0 0 h240 v32 h-240' />
-                        </svg>
-                    </div>
-                </radio-section>
+                            <h2><%= d.title %></h2>
+                            <h3><%
+            const total = d.points.reduce((sum, value) => sum + value, 0);
+            switch(d.type){
+                case 'number':
+                    %><%= numberTypes.formatNumber(total) %><%
+                    break;
 
+                case 'bytes':
+                    %><%= numberTypes.formatBytes(total) %><%
+                    break;
+
+                case 'percent':
+                    %><%= total %> %<%
+                    break;
+            }
+%></h3>
+                        </key>
+                        <svg viewBox='0 0 <%= graphWidth %> <%= graphHeight %>'></svg>
+                    </div>
+<%
+        }
+%>
+                </radio-section>
+<%
+    }
+%>
+                <script>
+                    const graphWidth = <%= graphWidth %>;
+                    const graphHeight = <%= graphHeight %>;
+                    const points = <%- JSON.stringify(points) %>;
+                </script>
+                <script src='/scripts/graph.js'></script>
+                <script src='/scripts/domain.js'></script>
             </content>
 
 <%- include('../../fragments/footer') %>

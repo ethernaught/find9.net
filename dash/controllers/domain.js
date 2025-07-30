@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const numberTypes = require('../modules/number_types');
 
 exports.getSideBar = (req, res, next) => {
     res.locals.sidebar = [
@@ -68,8 +69,101 @@ exports.getDomain = (req, res) => {
             'domain',
             'home'
         ],
+        numberTypes,
         data: {
-            domain: req.params.domain
+            domain: req.params.domain,
+            graph: [
+                {
+                    title: '24 Hours',
+                    data: [
+                        {
+                            title: 'Unique Visitors',
+                            type: 'number',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Total Requests',
+                            type: 'number',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Percent Cached',
+                            type: 'percent',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Total Data Served',
+                            type: 'bytes',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Data Cached',
+                            type: 'bytes',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        }
+                    ]
+                },
+                {
+                    title: '7 Days',
+                    data: [
+                        {
+                            title: 'Unique Visitors',
+                            type: 'number',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Total Requests',
+                            type: 'number',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Percent Cached',
+                            type: 'percent',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Total Data Served',
+                            type: 'bytes',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Data Cached',
+                            type: 'bytes',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        }
+                    ]
+                },
+                {
+                    title: '30 Days',
+                    data: [
+                        {
+                            title: 'Unique Visitors',
+                            type: 'number',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Total Requests',
+                            type: 'number',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Percent Cached',
+                            type: 'percent',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Total Data Served',
+                            type: 'bytes',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        },
+                        {
+                            title: 'Data Cached',
+                            type: 'bytes',
+                            points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                        }
+                    ]
+                }
+            ]
         }
     });
 };

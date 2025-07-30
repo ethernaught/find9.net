@@ -20,9 +20,9 @@
                     </fl-head>
                     <fl-body>
 <%
-    const uniqueVisitors = [];
+    const points = [];
     for(const domain of data.domains){
-        uniqueVisitors.push(domain.unique_visitors);
+        points.push(domain.points);
 %>
                         <row>
                             <cell>
@@ -30,8 +30,8 @@
                             </cell>
                             <cell><%= domain.status ? 'Active' : 'Inactive' %></cell>
                             <cell>
-                                <svg viewBox='0 0 <%= graphWidth %> <%= graphHeight %>'>
-                                </svg>
+                                <svg viewBox='0 0 <%= graphWidth %> <%= graphHeight %>'></svg>
+                                <%= domain.points.reduce((sum, value) => sum + value, 0) %>
                             </cell>
                         </row>
 <%
@@ -42,7 +42,7 @@
                 <script>
                     const graphWidth = <%= graphWidth %>;
                     const graphHeight = <%= graphHeight %>;
-                    const uniqueVisitors = <%- JSON.stringify(uniqueVisitors) %>;
+                    const points = <%- JSON.stringify(points) %>;
                 </script>
                 <script src='/scripts/graph.js'></script>
                 <script src='/scripts/home.js'></script>

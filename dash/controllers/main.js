@@ -1,4 +1,5 @@
 const { v4: uuidv4 } = require('uuid');
+const numberTypes = require('../modules/number_types');
 
 exports.getSideBar = (req, res, next) => {
     res.locals.sidebar = [
@@ -32,12 +33,13 @@ exports.getHome = (req, res) => {
             'table',
             'home'
         ],
+        numberTypes,
         data: {
             domains: [
                 {
                     name: 'find9.net',
                     status: true,
-                    unique_visitors: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
+                    points: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
                 }
             ]
         }
