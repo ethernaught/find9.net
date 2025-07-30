@@ -15,17 +15,23 @@
                         </row>
                     </fl-head>
                     <fl-body>
+<%
+    for(const domain of data.domains){
+%>
                         <row>
                             <cell>
-                                <a href='/domain/find9.net'>find9.net</a>
+                                <a href='/domain/<%= domain.name %>'><%= domain.name %></a>
                             </cell>
-                            <cell>Active</cell>
+                            <cell><%= domain.status ? 'Active' : 'Inactive' %></cell>
                             <cell>
                                 <svg viewBox='0 0 150 20'>
-                                    <path d='M-1 20 l1 -1 l19 -4 l132 -10 v16 h-152' />
+                                    <path d='<%= domain.graph %>' />
                                 </svg>
                             </cell>
                         </row>
+<%
+    }
+%>
                     </fl-body>
                 </fl-table>
             </content>

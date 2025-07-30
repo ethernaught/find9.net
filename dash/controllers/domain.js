@@ -73,3 +73,18 @@ exports.getDomain = (req, res) => {
         }
     });
 };
+
+exports.getRecords = (req, res) => {
+    //((req.useragent.isMobile) ? 'mobile' : 'desktop')
+    res.render('layouts/domain/dns', {
+        title: `${req.params.domain} | DNS | Records`,
+        page: `/domain/${req.params.domain}/dns/records`,
+        uniqid: uuidv4,
+        styles: [
+            'home'
+        ],
+        data: {
+            domain: req.params.domain
+        }
+    });
+};

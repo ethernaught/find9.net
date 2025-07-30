@@ -6,6 +6,7 @@ radio-header {
     display: flex;
     gap: 20px;
     align-items: center;
+    color: var(--text-secondary);
 }
 
 radio-header label {
@@ -38,3 +39,19 @@ content input[type='radio'][item='0']:checked ~ radio-section[item='0'],
         content input[type='radio'][item='3']:checked ~ radio-section[item='3'] {
     display: block;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

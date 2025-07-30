@@ -55,6 +55,7 @@ app.use(useragent.express());
 
 app.use('/domain/:domain', domainController.getSideBar);
 app.get('/domain/:domain', domainController.getDomain);
+app.get('/domain/:domain/dns/records', domainController.getRecords);
 
 app.use('*', mainController.getSideBar);
 app.get('/', mainController.getHome);

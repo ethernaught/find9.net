@@ -6,17 +6,19 @@
                     <h3><%= data.domain %></h3>
                 </header>
 
-                <input id='a' name='graph' type='radio' item='0' checked>
-                <input id='b' name='graph' type='radio' item='1'>
-                <input id='c' name='graph' type='radio' item='2'>
+                <input id='<% const uuid_a = uniqid(); %><%= uuid_a %>' name='<% const uuid_d = uniqid(); %><%= uuid_d %>' type='radio' item='0' checked>
+                <input id='<% const uuid_b = uniqid(); %><%= uuid_b %>' name='<%= uuid_d %>' type='radio' item='1'>
+                <input id='<% const uuid_c = uniqid(); %><%= uuid_c %>' name='<%= uuid_d %>' type='radio' item='2'>
 
                 <radio-header>
-                    <label for='a' item='0'>24 Hours</label>
-                    <label for='b' item='1'>7 Days</label>
-                    <label for='c' item='2'>30 Days</label>
+                    <label for='<%= uuid_a %>' item='0'>24 Hours</label>
+                    <label for='<%= uuid_b %>' item='1'>7 Days</label>
+                    <label for='<%= uuid_c %>' item='2'>30 Days</label>
+                    <filler></filler>
+                    <span>JULY 22 - JULY 29</span>
                 </radio-header>
 
-                <radio-section item-id='a' item='0'>
+                <radio-section item='0'>
 
 
                 </radio-section>
