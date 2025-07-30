@@ -25,6 +25,8 @@ radio-header label {
 
 radio-section {
     display: none;
+    flex-direction: column;
+    gap: 15px;
 }
 
 content input[type='radio'][item='0']:checked ~ radio-header label[item='0'],
@@ -38,10 +40,42 @@ content input[type='radio'][item='0']:checked ~ radio-section[item='0'],
         content input[type='radio'][item='1']:checked ~ radio-section[item='1'],
         content input[type='radio'][item='2']:checked ~ radio-section[item='2'],
         content input[type='radio'][item='3']:checked ~ radio-section[item='3'] {
-    display: block;
+    display: flex;
 }
 
+radio-section div {
+    display: flex;
+    gap: 20px;
+    padding-bottom: 15px;
+}
 
+radio-section div:not(:last-child) {
+    border-bottom: solid 1px var(--background-shimmer);
+}
+
+radio-section key {
+    display: block;
+    min-width: 200px;
+}
+
+radio-section key h3 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+radio-section key h2 {
+    margin: 0;
+    font-size: 1rem;
+    color: var(--text-secondary);
+    font-weight: normal;
+}
+
+radio-section svg {
+    display: block;
+    flex: 1;
+    fill: var(--primary-transparent);
+    stroke: var(--primary);
+}
 
 
 

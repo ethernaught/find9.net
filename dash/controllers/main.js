@@ -1,5 +1,4 @@
 const { v4: uuidv4 } = require('uuid');
-const graph = require('../modules/graph')
 
 exports.getSideBar = (req, res, next) => {
     res.locals.sidebar = [
@@ -38,7 +37,7 @@ exports.getHome = (req, res) => {
                 {
                     name: 'find9.net',
                     status: true,
-                    graph: graph.graphPoints(150, 20, [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ])
+                    unique_visitors: [ 10, 20, 30, 25, 60, 90, 100, 80, 50, 10 ]
                 }
             ]
         }

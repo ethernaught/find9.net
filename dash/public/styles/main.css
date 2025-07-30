@@ -268,19 +268,19 @@ content {
     flex: 1;
     flex-direction: column;
     gap: 20px;
-    min-height: calc(100vh - var(--top) - 55px);
+    height: calc(100vh - var(--top) - 55px);
     background-color: var(--background-secondary);
     padding: 20px;
     border-radius: 20px;
-    overflow: hidden;
+    overflow: auto;
 }
 
-content h3 {
+content header h3 {
     margin: 0;
     font-size: 1.5rem;
 }
 
-content h1 {
+content header h1 {
     margin: 0;
     font-size: 1rem;
     color: var(--text-secondary);

@@ -1,4 +1,4 @@
-exports.graphPoints = (width, height, points) => {
+function graphPoints(width, height, points){
     const stepX = width / (points.length - 1);
     const maxValue = Math.max(...points);
 
@@ -11,5 +11,4 @@ exports.graphPoints = (width, height, points) => {
     });
 
     return d.trim();
-};
-
+}

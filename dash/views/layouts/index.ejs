@@ -1,4 +1,8 @@
 <%- include('../fragments/header') %>
+<%
+    const graphWidth = 150;
+    const graphHeight = 20;
+%>
 
             <content>
                 <header>
@@ -16,7 +20,9 @@
                     </fl-head>
                     <fl-body>
 <%
+    const uniqueVisitors = [];
     for(const domain of data.domains){
+        uniqueVisitors.push(domain.unique_visitors);
 %>
                         <row>
                             <cell>
@@ -24,8 +30,7 @@
                             </cell>
                             <cell><%= domain.status ? 'Active' : 'Inactive' %></cell>
                             <cell>
-                                <svg viewBox='0 0 150 20'>
-                                    <path d='<%= domain.graph %>' />
+                                <svg viewBox='0 0 <%= graphWidth %> <%= graphHeight %>'>
                                 </svg>
                             </cell>
                         </row>
@@ -34,6 +39,13 @@
 %>
                     </fl-body>
                 </fl-table>
+                <script>
+                    const graphWidth = <%= graphWidth %>;
+                    const graphHeight = <%= graphHeight %>;
+                    const uniqueVisitors = <%- JSON.stringify(uniqueVisitors) %>;
+                </script>
+                <script src='/scripts/graph.js'></script>
+                <script src='/scripts/home.js'></script>
             </content>
 
 <%- include('../fragments/footer') %>
