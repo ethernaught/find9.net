@@ -1,6 +1,6 @@
+const express = require('express');
 const { v4: uuidv4 } = require('uuid');
 const numberTypes = require('../../modules/number_types');
-const express = require('express');
 
 exports.getRouter = () => {
     const router = express.Router({ mergeParams: true });
