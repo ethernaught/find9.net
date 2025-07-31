@@ -37,7 +37,6 @@ exports.getRouter = () => {
             page: '/profile',
             uniqid: uuidv4,
             styles: [
-                'home'
             ],
             data: {}
         });

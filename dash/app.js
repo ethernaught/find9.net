@@ -54,6 +54,9 @@ app.use('/profile', require('./routers/profile').getRouter());
 app.use('/', require('./routers').getRouter());
 
 app.get('*', (req, res) => {
+	res.json({
+		status: 404
+	});
 	//mainController.getError(req, res, 404);
 });
 

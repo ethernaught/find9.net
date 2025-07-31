@@ -69,8 +69,7 @@ exports.getRouter = () => {
             page: `/domain/${req.params.domain}`,
             uniqid: uuidv4,
             styles: [
-                'domain',
-                'home'
+                'domain/overview'
             ],
             numberTypes,
             data: {
@@ -177,7 +176,8 @@ exports.getRouter = () => {
             page: `/domain/${req.params.domain}/dns/records`,
             uniqid: uuidv4,
             styles: [
-                'home'
+                'table',
+                'domain/dns/records'
             ],
             data: {
                 domain: req.params.domain

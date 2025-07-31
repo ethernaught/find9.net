@@ -34,7 +34,7 @@ exports.getRouter = () => {
             uniqid: uuidv4,
             styles: [
                 'table',
-                'home'
+                'overview'
             ],
             numberTypes,
             data: {
