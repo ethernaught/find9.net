@@ -10,8 +10,8 @@ const MongoStore = require('connect-mongo');
 global.mongo = require('./modules/mongo');
 require('dotenv').config();
 
-const mainController = require('./controllers/main');
-const domainController = require('./controllers/domain');
+const mainRouter = require('./routers');
+const domainRouter = require('./routers/domain');
 
 const app = express();
 
@@ -52,17 +52,18 @@ app.use((req, res, next) => {
 
 app.use(useragent.express());
 
+app.use('/domain/:domain', domainRouter.getRouter());
+app.use('/', mainRouter.getRouter());
+//app.use('/domain/:domain', require('./controllers/domain').getRouter);//domainController.getSideBar);
+//app.get('/domain/:domain', domainController.getDomain);
+//app.get('/domain/:domain/dns/records', domainController.getRecords);
 
-app.use('/domain/:domain', domainController.getSideBar);
-app.get('/domain/:domain', domainController.getDomain);
-app.get('/domain/:domain/dns/records', domainController.getRecords);
-
-app.use('*', mainController.getSideBar);
-app.get('/', mainController.getHome);
+//app.use('*', mainController.getSideBar);
+//app.get('/', mainController.getHome);
 
 
 app.get('*', (req, res) => {
-	mainController.getError(req, res, 404);
+	//mainController.getError(req, res, 404);
 });
 
 const server = http.createServer(app);
