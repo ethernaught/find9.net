@@ -29,7 +29,8 @@ fl-table cell {
     display: block;
 }
 
-fl-head cell, fl-body cell {
+fl-head cell,
+        fl-body cell {
     min-width: 100px;
     flex: 1 0 100px;
 }
@@ -43,14 +44,6 @@ fl-body cell a {
 
 fl-body cell a:hover {
     text-decoration: underline;
-}
-
-fl-body cell svg {
-    display: block;
-    width: 150px;
-    height: 20px;
-    fill: var(--primary-transparent);
-    stroke: var(--primary);
 }
 
 error {

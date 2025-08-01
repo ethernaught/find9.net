@@ -1,5 +1,13 @@
-fl-body cell:nth-child(3) {
+fl-body cell.graph {
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+fl-body cell svg {
+    display: block;
+    width: 150px;
+    height: 20px;
+    fill: var(--primary-transparent);
+    stroke: var(--primary);
 }

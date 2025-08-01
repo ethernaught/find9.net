@@ -1,0 +1,54 @@
+fl-head cell.checkbox,
+        fl-body cell.checkbox {
+    min-width: unset;
+    flex: none;
+}
+
+fl-head cell.checkbox label,
+        fl-body cell.checkbox label {
+    display: block;
+    cursor: pointer;
+}
+
+fl-head cell.checkbox svg,
+        fl-body cell.checkbox svg {
+    display: block;
+    height: 1rem;
+    fill: var(--text-primary);
+}
+
+fl-head cell.checkbox svg path,
+        fl-body cell.checkbox svg path {
+    d: path('M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z');
+}
+
+fl-head cell.checkbox input[type='checkbox']:checked ~ label svg path,
+        fl-body cell.checkbox input[type='checkbox']:checked ~ label svg path {
+    d: path('M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z');
+}
+
+#add-record {
+    position: absolute;
+    display: flex;
+    right: 20px;
+    bottom: 20px;
+    padding: 15px 20px;
+    align-items: center;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--background);
+    background: var(--text-primary);
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#add-record:hover {
+    background: var(--text-secondary);
+}
+
+#add-record svg {
+    display: block;
+    height: 1.5rem;
+    fill: var(--background);
+}

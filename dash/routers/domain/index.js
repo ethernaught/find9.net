@@ -180,7 +180,25 @@ exports.getRouter = () => {
                 'domain/dns/records'
             ],
             data: {
-                domain: req.params.domain
+                domain: req.params.domain,
+                records: [
+                    {
+                        _id: 'asdasdasdasd',
+                        type: 'A',
+                        name: 'find9.net',
+                        content: '127.0.0.1',
+                        proxy_status: false,
+                        ttl: 'Auto'
+                    },
+                    {
+                        _id: 'asdasdasdasd',
+                        type: 'CNAME',
+                        name: 'a4',
+                        content: 'a5.find9.net',
+                        proxy_status: false,
+                        ttl: 'Auto'
+                    }
+                ]
             }
         });
     });

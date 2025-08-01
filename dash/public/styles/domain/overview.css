@@ -1,7 +1,3 @@
-input[type='radio'] {
-    display: none;
-}
-
 radio-header {
     display: flex;
     gap: 20px;

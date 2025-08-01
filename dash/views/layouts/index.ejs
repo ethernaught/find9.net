@@ -29,7 +29,7 @@
                                 <a href='/domain/<%= domain.name %>'><%= domain.name %></a>
                             </cell>
                             <cell><%= domain.status ? 'Active' : 'Inactive' %></cell>
-                            <cell>
+                            <cell class='graph'>
                                 <svg viewBox='0 0 <%= graphWidth %> <%= graphHeight %>'></svg>
                                 <%= domain.points.reduce((sum, value) => sum + value, 0) %>
                             </cell>

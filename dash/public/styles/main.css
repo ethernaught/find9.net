@@ -183,6 +183,11 @@ form {
     margin: 0;
 }
 
+input[type='radio'],
+        input[type='checkbox'] {
+    display: none;
+}
+
 
 body > section {
     display: flex;
@@ -264,6 +269,7 @@ sidebar li a:not([selected]):hover {
 
 
 content {
+    position: relative;
     display: flex;
     flex: 1;
     flex-direction: column;
