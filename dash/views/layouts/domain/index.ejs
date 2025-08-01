@@ -31,7 +31,7 @@
         for(const d of data.graph[i].data){
             points.push(d.points);
 %>
-                    <div>
+                    <div class='graph'>
                         <key>
                             <h2><%= d.title %></h2>
                             <h3><%
@@ -66,7 +66,7 @@
                     const points = <%- JSON.stringify(points) %>;
                 </script>
                 <script src='/scripts/graph.js'></script>
-                <script src='/scripts/domain.js'></script>
+                <script src='/scripts/domain/overview.js'></script>
             </content>
 
 <%- include('../../fragments/footer') %>
