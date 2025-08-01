@@ -13,7 +13,7 @@ fl-head cell.checkbox label,
 fl-head cell.checkbox svg,
         fl-body cell.checkbox svg {
     display: block;
-    height: 1rem;
+    height: 1.2rem;
     fill: var(--text-primary);
 }
 
@@ -27,12 +27,12 @@ fl-head cell.checkbox input[type='checkbox']:checked ~ label svg path,
     d: path('M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z');
 }
 
-#add-record {
+button.icon-with-text {
     position: absolute;
     display: flex;
     right: 20px;
     bottom: 20px;
-    padding: 15px 20px;
+    padding: 12.5px 15px;
     align-items: center;
     font-size: 1rem;
     font-weight: bold;
@@ -43,11 +43,11 @@ fl-head cell.checkbox input[type='checkbox']:checked ~ label svg path,
     cursor: pointer;
 }
 
-#add-record:hover {
+button.icon-with-text:hover {
     background: var(--text-secondary);
 }
 
-#add-record svg {
+button.icon-with-text svg {
     display: block;
     height: 1.5rem;
     fill: var(--background);

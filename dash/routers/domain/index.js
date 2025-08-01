@@ -170,38 +170,7 @@ exports.getRouter = () => {
         });
     });
 
-    router.get('/dns/records', (req, res) => {
-        res.render('layouts/domain/dns', {
-            title: `${req.params.domain} | DNS | Records`,
-            page: `/domain/${req.params.domain}/dns/records`,
-            uniqid: uuidv4,
-            styles: [
-                'table',
-                'domain/dns/records'
-            ],
-            data: {
-                domain: req.params.domain,
-                records: [
-                    {
-                        _id: 'asdasdasdasd',
-                        type: 'A',
-                        name: 'find9.net',
-                        content: '127.0.0.1',
-                        proxy_status: false,
-                        ttl: 'Auto'
-                    },
-                    {
-                        _id: 'asdasdasdasd',
-                        type: 'CNAME',
-                        name: 'a4',
-                        content: 'a5.find9.net',
-                        proxy_status: false,
-                        ttl: 'Auto'
-                    }
-                ]
-            }
-        });
-    });
+    router.use('/dns', require('./dns').getRouter());
 
     return router;
 };
