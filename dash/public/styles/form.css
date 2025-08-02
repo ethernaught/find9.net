@@ -8,16 +8,62 @@ form {
 
 field {
     display: flex;
-    flex-direction: column;
+    width: 100%;
+    flex: 1;
     gap: 20px;
 }
 
+text-field {
+    position: relative;
+    display: inline-block;
+    width: 100%;
+    flex: 1;
+    color: var(--text-primary);
+    font-size: 1rem;
+    margin-top: 0.5rem;
+    border: solid 1px var(--background-shimmer);
+    border-radius: 10px;
+}
+
+text-field:focus-within {
+    border: solid 1px var(--primary);
+}
+
+text-field:before {
+    display: block;
+    position: absolute;
+    top: -0.5rem;
+    left: 20px;
+    padding: 0px 8px;
+    content: attr(label);
+    font-size: 0.8rem;
+    color: var(--text-secondary);
+    background-color: var(--background-secondary);
+}
+
+text-field:focus-within:before {
+    color: var(--primary);
+}
+
+input[type='text'] {
+    display: block;
+    width: calc(100% - 36px);
+    padding: 13px 18px;
+    font-size: 1rem;
+    font-family: sans-serif;
+    color: var(--white);
+    background-color: transparent;
+    outline: none;
+    border: none;
+    transition: background-color 0.3s;
+}
 
 
 fl-select {
     position: relative;
     display: flex;
     width: 100%;
+    flex: 1;
     flex-direction: column;
     font-size: 1rem;
     font-family: sans-serif;
@@ -41,7 +87,7 @@ fl-select:focus {
 fl-select:before {
     display: block;
     content: attr(label);
-    padding: 13px 18px;
+    padding: 18px;
 }
 /*
 fl-select:focus:before {
