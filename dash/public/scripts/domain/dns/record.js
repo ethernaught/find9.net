@@ -1,4 +1,5 @@
 const addRecordButton = document.getElementById('add-record');
+const recordContent = document.getElementById('record-content');
 const formType = document.getElementById('form-type');
 const formTTL = document.getElementById('form-ttl');
 
@@ -35,10 +36,12 @@ formType.onchange = function(e){
     switch(e.target.value){
         case RecordTypes.A:
             console.log('A');
+            createARecord();
             break;
 
         case RecordTypes.AAAA:
             console.log('AAAA');
+            createAAAARecord();
             break;
             
         case RecordTypes.CAA:
@@ -111,22 +114,30 @@ formType.onchange = function(e){
     }
 };
 
+function clearRecordContent(){
+    while(recordContent.firstChild){
+        recordContent.removeChild(recordContent.firstChild)
+    }
+}
+
 function createARecord(){
+    clearRecordContent();
     const address = createTextField({
         label: 'IPv4 Address',
         name: 'address'
     });
 
-
+    recordContent.appendChild(address);
 }
 
 function createAAAARecord(){
+    clearRecordContent();
     const address = createTextField({
         label: 'IPv6 Address',
         name: 'address'
     });
 
-    
+    recordContent.appendChild(address);
 }
 
 

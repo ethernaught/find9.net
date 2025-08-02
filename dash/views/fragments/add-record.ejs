@@ -1,6 +1,6 @@
 <form action='https://api.' method='POST' onsubmit='' target='hidden-frame'>
     <field>
-        <fl-select id='form-type' name='type'>
+        <fl-select id='form-type' label='Type' name='type' required>
             <fl-options>
                 <fl-option value='A'>A</fl-option>
                 <fl-option value='AAAA'>AAAA</fl-option>
@@ -25,9 +25,9 @@
             </fl-options>
         </fl-select>
 
-        <text-field label='Name' name='name'></text-field>
+        <text-field label='Name' name='name' required></text-field>
 
-        <fl-select id='form-ttl' name='ttl'>
+        <fl-select id='form-ttl' label='TTL' name='ttl' required>
             <fl-options>
                 <fl-option value='Auto'>Auto</fl-option>
                 <fl-option value='1 min'>1 min</fl-option>
@@ -44,6 +44,8 @@
             </fl-options>
         </fl-select>
     </field>
+
+    <content id='record-content'></content>
 </form>
 <iframe name='hidden-frame'></iframe>
 

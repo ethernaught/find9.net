@@ -273,7 +273,7 @@ sidebar li a:not([selected]):hover {
 
 
 
-content {
+section > content {
     position: relative;
     display: flex;
     flex: 1;
