@@ -32,24 +32,31 @@ fl-select {
     user-select: none;
 }
 
+fl-select:focus {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
 fl-select:before {
     display: block;
     content: attr(label);
     padding: 13px 18px;
 }
-
+/*
 fl-select:focus:before {
     display: none;
 }
-
+*/
 fl-options {
     position: absolute;
     display: none;
+    top: 100%;
     width: inherit;
-    background: var(--background);
+    background: var(--background-shimmer);
     overflow-y: auto;
     max-height: 300px;
-    border-radius: 10px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
 }
 
 fl-select:focus fl-options {
@@ -62,5 +69,5 @@ fl-option {
 }
 
 fl-option:hover {
-    background-color: var(--background-shimmer);
+    background-color: var(--background);
 }
