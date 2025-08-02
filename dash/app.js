@@ -49,6 +49,8 @@ app.use((req, res, next) => {
 
 app.use(useragent.express());
 
+app.use('/fragments', require('./routers/fragments').getRouter());
+
 app.use('/domain/:domain', require('./routers/domain').getRouter());
 app.use('/profile', require('./routers/profile').getRouter());
 app.use('/', require('./routers').getRouter());

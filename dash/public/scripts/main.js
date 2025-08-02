@@ -1,3 +1,5 @@
+var processing = false;
+
 function getPage(page){
     if(processing){
         return;
@@ -8,17 +10,19 @@ function getPage(page){
         method: 'GET',
         credentials: 'include',
         headers: {
-            'Content-Type': 'application/json',
+            'Content-Type': 'application/json'
         }
     }).then((response) => {
         if(!response.ok){
             throw new Error('Failed to get data');
         }
 
-        return response.json();
+        return response.text();
 
     }).then((data) => {
         console.log(data);
+
+        document.querySelector('content').innerHTML = data;
 
         processing = false;
 

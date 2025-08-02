@@ -52,3 +52,89 @@ button.icon-with-text svg {
     height: 1.5rem;
     fill: var(--background);
 }
+
+
+
+
+
+
+input[type='checkbox'].fl-select + label {
+    position: relative;
+    display: flex;
+    width: calc(100% - 36px);
+    flex: 1;
+    padding: 13px 18px;
+    align-items: center;
+    font-size: 1rem;
+    font-family: sans-serif;
+    color: var(--text-primary);
+    background-color: var(--background);
+    border-radius: 10px;
+    cursor: pointer;
+    -webkit-touch-callout: none; /* iOS Safari */
+    -webkit-user-select: none; /* Safari */
+    -khtml-user-select: none; /* Konqueror HTML */
+    -moz-user-select: none; /* Old versions of Firefox */
+        -ms-user-select: none; /* Internet Explorer/Edge */
+            user-select: none; /* Non-prefixed version, currently
+                                supported by Chrome, Edge, Opera and Firefox */
+}
+
+input[type='checkbox'].fl-select:checked + label {
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+input[type='checkbox'].fl-select {
+    display: none;
+}
+
+input[type='checkbox'].fl-select + label:before {
+    content: attr(label);
+}
+
+input[type='checkbox'].fl-select + label:after {
+    display: inline-block;
+    content: '';
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+    background-image: url(/icons/more.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transition: transform 0.3s;
+}
+
+input[type='checkbox'].fl-select:checked + label:after {
+    transform: rotate(-180deg);
+}
+
+input[type='checkbox'].fl-select:checked + label fl-options {
+    display: block;
+}
+
+fl-options {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    display: none;
+    width: 100%;
+    max-height: 300px;
+    overflow-y: auto;
+    white-space: nowrap;
+    background-color: var(--background-shimmer);
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    z-index: 2;
+}
+
+fl-option {
+    display: block;
+    padding: 13px 18px;
+}
+
+fl-option:hover {
+    background-color: var(--background);
+}
+

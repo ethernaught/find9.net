@@ -184,7 +184,12 @@ form {
 }
 
 input[type='radio'],
+        input[type='hidden'],
         input[type='checkbox'] {
+    display: none;
+}
+
+iframe[name='hidden-frame'] {
     display: none;
 }
 
@@ -297,8 +302,6 @@ content header h1 {
     font-size: 1rem;
     color: var(--text-secondary);
 }
-
-
 
 
 
