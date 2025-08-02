@@ -1,5 +1,6 @@
 form {
     display: flex;
+    flex-direction: column;
     padding: 20px;
     align-items: start;
     gap: 20px;
@@ -57,6 +58,7 @@ fl-options {
     max-height: 300px;
     border-bottom-left-radius: 10px;
     border-bottom-right-radius: 10px;
+    z-index: 2;
 }
 
 fl-select:focus fl-options {
