@@ -11,6 +11,7 @@ exports.getRouter = () => {
             uniqid: uuidv4,
             styles: [
                 'table',
+                'form',
                 'domain/dns/records'
             ],
             data: {

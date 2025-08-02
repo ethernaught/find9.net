@@ -22,7 +22,11 @@ function getPage(page){
     }).then((data) => {
         console.log(data);
 
-        document.querySelector('content').innerHTML = data;
+        const content = document.querySelector('content');
+        content.innerHTML = data;
+        for(const script of content.querySelectorAll('script')){
+            script.src = script.src;
+        }
 
         processing = false;
 

@@ -1,7 +1,5 @@
 <form action='https://api.' method='POST' onsubmit='' target='hidden-frame'>
-    <input name='type' type='hidden' value='A'>
-    <input id='<% let uuid = uniqid(); %><%= uuid %>' type='checkbox' class='fl-select'>
-    <label for='<%= uuid %>' label='A'>
+    <fl-select id='form-type' name='type'>
         <fl-options>
             <fl-option value='A'>A</fl-option>
             <fl-option value='AAAA'>AAAA</fl-option>
@@ -24,13 +22,11 @@
             <fl-option value='TXT'>TXT</fl-option>
             <fl-option value='URI'>URI</fl-option>
         </fl-options>
-    </label>
+    </fl-select>
 
     <input name='name' type='text' />
 
-    <input name='ttl' type='hidden' value='Auto'>
-    <input id='<% uuid = uniqid(); %><%= uuid %>' type='checkbox' class='fl-select'>
-    <label for='<%= uuid %>' label='Auto'>
+    <fl-select id='form-ttl' name='ttl'>
         <fl-options>
             <fl-option value='Auto'>Auto</fl-option>
             <fl-option value='1 min'>1 min</fl-option>
@@ -45,6 +41,8 @@
             <fl-option value='12 hr'>12 hr</fl-option>
             <fl-option value='1 day'>1 day</fl-option>
         </fl-options>
-    </label>
+    </fl-select>
 </form>
 <iframe name='hidden-frame'></iframe>
+
+<script src='/scripts/form.js'></script>
