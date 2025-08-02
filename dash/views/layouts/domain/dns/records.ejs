@@ -6,6 +6,8 @@
                     <h3>Records</h3>
                 </header>
 
+<%- include('../../../fragments/add-record') %>
+
                 <fl-table>
                     <fl-head>
                         <row>
@@ -24,7 +26,6 @@
                             <cell>TTL</cell>
                         </row>
                     </fl-head>
-<%- include('../../../fragments/add-record') %>
                     <fl-body>
 <%
     for(const record of data.records){
