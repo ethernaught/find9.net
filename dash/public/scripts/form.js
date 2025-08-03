@@ -1,6 +1,6 @@
 (function(){
     const textFields = document.querySelectorAll('text-field');
-    for(let textField of textFields){
+    for(const textField of textFields){
         const input = document.createElement('input');
         input.type = 'text';
         input.name = textField.getAttribute('name');
@@ -10,7 +10,7 @@
 
     const selects = document.querySelectorAll('fl-select');
 
-    for(let select of selects){
+    for(const select of selects){
         select.setAttribute('tabindex', '0');
         const firstOption = select.querySelector('fl-option');
         const input = document.createElement('input');
@@ -18,7 +18,7 @@
         input.name = select.getAttribute('name');
         input.required = select.getAttribute('required');
         input.value = firstOption.getAttribute('value');
-        select.parentElement.insertBefore(input, select);
+        select.appendChild(input);
 
         const selected = document.createElement('span');
         selected.appendChild(document.createTextNode(firstOption.textContent));
@@ -48,6 +48,7 @@ function createTextField(data){
     const input = document.createElement('input');
     input.type = 'text';
     input.name = data.name;
+
     if(data.required){
         textField.setAttribute('required', data.required);
         input.required = data.required;
@@ -56,4 +57,52 @@ function createTextField(data){
     textField.appendChild(input);
 
     return textField;
+}
+
+function createSelect(data){
+    const select = document.createElement('fl-select');
+    select.setAttribute('tabindex', '0');
+    select.setAttribute('label', data.label);
+    select.setAttribute('name', data.name);
+
+    const selected = document.createElement('span');
+    selected.appendChild(document.createTextNode(data.values[0].name));
+    select.appendChild(selected);
+
+    const options = document.createElement('fl-options');
+    for(const v of data.values){
+        const option = document.createElement('fl-option');
+        option.setAttribute('value', v.value);
+        option.appendChild(document.createTextNode(v.name));
+        options.appendChild(option);
+    }
+
+    select.appendChild(options);
+
+    const input = document.createElement('input');
+    input.type = 'hidden';
+    input.name = data.name;
+    input.value = data.values[0].value;
+
+    if(data.required){
+        select.setAttribute('required', data.required);
+        input.required = data.required;
+    }
+
+    select.appendChild(input);
+
+    select.onclick = function(e){
+        if(e.target.tagName == 'FL-OPTION'){
+            input.value = e.target.getAttribute('value');
+            select.value = e.target.getAttribute('value');
+            selected.textContent = e.target.textContent;
+            //select.setAttribute('selected', e.target.textContent);
+            select.dispatchEvent(new Event('change'));
+            select.blur();
+            return;
+        }
+        select.focus();
+    };
+
+    return select;
 }

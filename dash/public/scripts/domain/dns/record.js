@@ -25,6 +25,13 @@ const RecordTypes = {
     TXT: 'TXT',
     URI: 'URI'
 };
+
+const CaaTags = {
+    HOSTNAMES: 'HOSTNAMES',
+    WILDCARDS: 'WILDCARDS',
+    VIOLATION_REPORTS: 'VIOLATION_REPORTS'
+}
+
 /*
 addRecordButton.onclick = function(e){
     console.log('CLICK');
@@ -144,13 +151,37 @@ function createAAAARecord(){
 
 function createCAARecord(){
     //FLAGS - no change = 0
+    const field = document.createElement('field');
+
+    const tag = createSelect({
+        label: 'Tag',
+        name: 'tag',
+        required: true,
+        values: [
+            {
+                name: 'Only allow specific hostnames',
+                value: CaaTags.HOSTNAMES
+            },
+            {
+                name: 'Only allow wildcards',
+                value: CaaTags.WILDCARDS
+            },
+            {
+                name: 'Send violation reports to URL (http:, https:, or mailto:)',
+                value: CaaTags.VIOLATION_REPORTS
+            }
+        ]
+    });
+    field.appendChild(tag);
 
     const caDomain = createTextField({
         label: 'CA Domain',
         name: 'ca_domain',
         required: true
     });
-    recordContent.appendChild(caDomain);
+    field.appendChild(caDomain);
+
+    recordContent.appendChild(field);
 }
 
 function createCERTRecord(){
