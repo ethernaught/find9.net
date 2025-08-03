@@ -73,23 +73,23 @@ formType.onchange = function(e){
             break;
             
         case RecordTypes.MX:
-            console.log('MX');
+            createMXRecord();
             break;
             
         case RecordTypes.NAPTR:
-            console.log('NAPTR');
+            createNAPTRRecord();
             break;
             
         case RecordTypes.NS:
-            console.log('NS');
+            createNSRecord();
             break;
             
         case RecordTypes.PTR:
-            console.log('PTR');
+            createPTRRecord();
             break;
             
         case RecordTypes.SMIMEA:
-            console.log('SMIMEA');
+            createSMIMEARecord();
             break;
             
         case RecordTypes.SRV:
@@ -373,5 +373,118 @@ function createLOCRecord(){
     field.appendChild(size);
 
     recordContent.appendChild(field);
+}
+
+function createMXRecord(){
+    const server = createTextField({
+        label: 'Mail Server',
+        name: 'server',
+        required: true
+    });
+    recordContent.appendChild(server);
+}
+
+function createNAPTRRecord(){
+    let field = document.createElement('field');
+
+    const order = createTextField({
+        label: 'Order',
+        name: 'order',
+        required: true
+    });
+    field.appendChild(order);
+
+    const preference = createTextField({
+        label: 'Preference',
+        name: 'preference',
+        required: true
+    });
+    field.appendChild(preference);
+
+    const flags = createTextField({
+        label: 'Flags',
+        name: 'flags',
+        required: true
+    });
+    field.appendChild(flags);
+
+    recordContent.appendChild(field);
+
+    field = document.createElement('field');
+
+    const service = createTextField({
+        label: 'Service',
+        name: 'service',
+        required: true
+    });
+    field.appendChild(service);
+
+    const regex = createTextField({
+        label: 'RegEx',
+        name: 'regex',
+        required: true
+    });
+    field.appendChild(regex);
+
+    const replacement = createTextField({
+        label: 'Replacement',
+        name: 'replacement',
+        required: true
+    });
+    field.appendChild(replacement);
+
+    recordContent.appendChild(field);
+}
+
+function createNSRecord(){
+    const server = createTextField({
+        label: 'Name Server',
+        name: 'server',
+        required: true
+    });
+    recordContent.appendChild(server);
+}
+
+function createPTRRecord(){
+    const domain = createTextField({
+        label: 'Domain',
+        name: 'domain',
+        required: true
+    });
+    recordContent.appendChild(domain);
+}
+
+function createSMIMEARecord(){
+    const field = document.createElement('field');
+
+    const usage = createTextField({
+        label: 'Usage',
+        name: 'usage',
+        required: true
+    });
+    field.appendChild(usage);
+
+    const selector = createTextField({
+        label: 'Selector',
+        name: 'selector',
+        required: true
+    });
+    field.appendChild(selector);
+
+    const matchingType = createTextField({
+        label: 'Flags',
+        name: 'matching_type',
+        required: true
+    });
+    field.appendChild(matchingType);
+
+    recordContent.appendChild(field);
+
+    const certificate = createTextField({
+        label: 'Certificate',
+        name: 'certificate',
+        required: true
+    });
+    recordContent.appendChild(certificate);
 }
 
