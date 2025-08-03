@@ -33,35 +33,39 @@ addRecordButton.onclick = function(e){
 */
 
 formType.onchange = function(e){
+    clearRecordContent();
+
     switch(e.target.value){
         case RecordTypes.A:
-            console.log('A');
             createARecord();
             break;
 
         case RecordTypes.AAAA:
-            console.log('AAAA');
             createAAAARecord();
             break;
             
         case RecordTypes.CAA:
-            console.log('CAA');
+            createCAARecord();
             break;
             
         case RecordTypes.CERT:
-            console.log('CERT');
+            createCERTRecord();
             break;
             
         case RecordTypes.CNAME:
-            console.log('CNAME');
+            createCNAMERecord();
             break;
             
         case RecordTypes.DNSKEY:
-            console.log('DNSKEY');
+            createDNSKEYRecord();
+            break;
+            
+        case RecordTypes.DS:
+            createDSRecord();
             break;
             
         case RecordTypes.HTTPS:
-            console.log('HTTPS');
+            createHTTPSRecord();
             break;
             
         case RecordTypes.LOC:
@@ -121,23 +125,163 @@ function clearRecordContent(){
 }
 
 function createARecord(){
-    clearRecordContent();
     const address = createTextField({
         label: 'IPv4 Address',
-        name: 'address'
+        name: 'address',
+        required: true
     });
-
     recordContent.appendChild(address);
 }
 
 function createAAAARecord(){
-    clearRecordContent();
     const address = createTextField({
         label: 'IPv6 Address',
-        name: 'address'
+        name: 'address',
+        required: true
     });
-
     recordContent.appendChild(address);
 }
 
+function createCAARecord(){
+    //FLAGS - no change = 0
+
+    const caDomain = createTextField({
+        label: 'CA Domain',
+        name: 'ca_domain',
+        required: true
+    });
+    recordContent.appendChild(caDomain);
+}
+
+function createCERTRecord(){
+    const field = document.createElement('field');
+
+    //NUMBER FIELD
+    const certType = createTextField({
+        label: 'Cert Type',
+        name: 'cert_type',
+        required: true
+    });
+    field.appendChild(certType);
+
+    const keyTag = createTextField({
+        label: 'Key Tag',
+        name: 'key_tag',
+        required: true
+    });
+    field.appendChild(keyTag);
+
+    const algorithm = createTextField({
+        label: 'Algorithm',
+        name: 'algorithm',
+        required: true
+    });
+    field.appendChild(algorithm);
+
+    recordContent.appendChild(field);
+
+    //TEXT FIELD
+    const certificate = createTextField({
+        label: 'Certificate',
+        name: 'certificate',
+        required: true
+    });
+    recordContent.appendChild(certificate);
+}
+
+function createCNAMERecord(){
+    const target = createTextField({
+        label: 'Target',
+        name: 'target',
+        required: true
+    });
+    recordContent.appendChild(target);
+}
+
+function createDNSKEYRecord(){
+    const field = document.createElement('field');
+
+    const flags = createTextField({
+        label: 'Flags',
+        name: 'flags',
+        required: true
+    });
+    field.appendChild(flags);
+
+    //SELECT PROTOCOL
+
+    const algorithm = createTextField({
+        label: 'Algorithm',
+        name: 'algorithm',
+        required: true
+    });
+    field.appendChild(algorithm);
+
+    recordContent.appendChild(field);
+
+    //TEXT FIELD
+    const publicKey = createTextField({
+        label: 'Public Key',
+        name: 'publicKey',
+        required: true
+    });
+    recordContent.appendChild(publicKey);
+}
+
+function createDSRecord(){
+    const field = document.createElement('field');
+
+    const keyTag = createTextField({
+        label: 'Key Tag',
+        name: 'key_tag',
+        required: true
+    });
+    field.appendChild(keyTag);
+
+    const algorithm = createTextField({
+        label: 'Algorithm',
+        name: 'algorithm',
+        required: true
+    });
+    field.appendChild(algorithm);
+
+    //SELECT DIGEST_TYPE
+
+    recordContent.appendChild(field);
+
+    //TEXT FIELD
+    const digest = createTextField({
+        label: 'Digest',
+        name: 'digest',
+        required: true
+    });
+    recordContent.appendChild(digest);
+}
+
+function createHTTPSRecord(){
+    const field = document.createElement('field');
+
+    const priority = createTextField({
+        label: 'Priority',
+        name: 'priority',
+        required: true
+    });
+    field.appendChild(priority);
+
+    const target = createTextField({
+        label: 'Target',
+        name: 'target',
+        required: true
+    });
+    field.appendChild(target);
+
+    const value = createTextField({
+        label: 'Value',
+        name: 'value',
+        required: true
+    });
+    field.appendChild(value);
+
+    recordContent.appendChild(field);
+}
 
