@@ -184,10 +184,11 @@ function createCAARecord(){
     recordContent.appendChild(field);
 }
 
+//CHANGE
 function createCERTRecord(){
     const field = document.createElement('field');
 
-    //NUMBER FIELD
+    //NUMBER FIELD 0-65535
     const certType = createTextField({
         label: 'Cert Type',
         name: 'cert_type',
@@ -195,6 +196,7 @@ function createCERTRecord(){
     });
     field.appendChild(certType);
 
+    //NUMBER FIELD 0-65535
     const keyTag = createTextField({
         label: 'Key Tag',
         name: 'key_tag',
@@ -202,6 +204,7 @@ function createCERTRecord(){
     });
     field.appendChild(keyTag);
 
+    //NUMBER FIELD 0-255
     const algorithm = createTextField({
         label: 'Algorithm',
         name: 'algorithm',
@@ -211,7 +214,7 @@ function createCERTRecord(){
 
     recordContent.appendChild(field);
 
-    //TEXT FIELD
+    //TEXT AREA (base64)
     const certificate = createTextField({
         label: 'Certificate',
         name: 'certificate',
@@ -229,9 +232,11 @@ function createCNAMERecord(){
     recordContent.appendChild(target);
 }
 
+//CHANGE
 function createDNSKEYRecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-65535
     const flags = createTextField({
         label: 'Flags',
         name: 'flags',
@@ -241,6 +246,7 @@ function createDNSKEYRecord(){
 
     //SELECT PROTOCOL
 
+    //NUMBER 0-255
     const algorithm = createTextField({
         label: 'Algorithm',
         name: 'algorithm',
@@ -250,7 +256,7 @@ function createDNSKEYRecord(){
 
     recordContent.appendChild(field);
 
-    //TEXT FIELD
+    //TEXT AREA BASE64
     const publicKey = createTextField({
         label: 'Public Key',
         name: 'publicKey',
@@ -259,9 +265,11 @@ function createDNSKEYRecord(){
     recordContent.appendChild(publicKey);
 }
 
+//CHANGE
 function createDSRecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-65535
     const keyTag = createTextField({
         label: 'Key Tag',
         name: 'key_tag',
@@ -269,6 +277,7 @@ function createDSRecord(){
     });
     field.appendChild(keyTag);
 
+    //NUMBER 0-255
     const algorithm = createTextField({
         label: 'Algorithm',
         name: 'algorithm',
@@ -280,7 +289,7 @@ function createDSRecord(){
 
     recordContent.appendChild(field);
 
-    //TEXT FIELD
+    //TEXT AREA HEX
     const digest = createTextField({
         label: 'Digest',
         name: 'digest',
@@ -289,9 +298,11 @@ function createDSRecord(){
     recordContent.appendChild(digest);
 }
 
+//CHANGE
 function createHTTPSRecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-65535
     const priority = createTextField({
         label: 'Priority',
         name: 'priority',
@@ -316,9 +327,11 @@ function createHTTPSRecord(){
     recordContent.appendChild(field);
 }
 
+//CHANGE
 function createLOCRecord(){
     let field = document.createElement('field');
 
+    //NUMBER
     let degrees = createTextField({
         label: 'Degrees',
         name: 'degrees',
@@ -326,6 +339,7 @@ function createLOCRecord(){
     });
     field.appendChild(degrees);
 
+    //NUMBER
     let minutes = createTextField({
         label: 'Minutes',
         name: 'minutes',
@@ -333,6 +347,7 @@ function createLOCRecord(){
     });
     field.appendChild(minutes);
 
+    //NUMBER
     let seconds = createTextField({
         label: 'Seconds',
         name: 'seconds',
@@ -347,6 +362,7 @@ function createLOCRecord(){
 
     field = document.createElement('field');
 
+    //NUMBER
     degrees = createTextField({
         label: 'Degrees',
         name: 'degrees',
@@ -354,6 +370,7 @@ function createLOCRecord(){
     });
     field.appendChild(degrees);
 
+    //NUMBER
     minutes = createTextField({
         label: 'Minutes',
         name: 'minutes',
@@ -361,6 +378,7 @@ function createLOCRecord(){
     });
     field.appendChild(minutes);
 
+    //NUMBER
     seconds = createTextField({
         label: 'Seconds',
         name: 'seconds',
@@ -375,6 +393,7 @@ function createLOCRecord(){
 
     field = document.createElement('field');
 
+    //NUMBER
     const horizontal = createTextField({
         label: 'Horizontal',
         name: 'horizontal',
@@ -382,6 +401,7 @@ function createLOCRecord(){
     });
     field.appendChild(horizontal);
 
+    //NUMBER
     const vertical = createTextField({
         label: 'Vertical',
         name: 'vertical',
@@ -389,6 +409,7 @@ function createLOCRecord(){
     });
     field.appendChild(vertical);
 
+    //NUMBER
     const altitude = createTextField({
         label: 'Altitude',
         name: 'altitude',
@@ -396,6 +417,7 @@ function createLOCRecord(){
     });
     field.appendChild(altitude);
 
+    //NUMBER
     const size = createTextField({
         label: 'Size',
         name: 'size',
@@ -415,9 +437,11 @@ function createMXRecord(){
     recordContent.appendChild(server);
 }
 
+//CHANGE
 function createNAPTRRecord(){
     let field = document.createElement('field');
 
+    //NUMBER 0-65535
     const order = createTextField({
         label: 'Order',
         name: 'order',
@@ -425,6 +449,7 @@ function createNAPTRRecord(){
     });
     field.appendChild(order);
 
+    //NUMBER 0-65535
     const preference = createTextField({
         label: 'Preference',
         name: 'preference',
@@ -485,9 +510,11 @@ function createPTRRecord(){
     recordContent.appendChild(domain);
 }
 
+//CHANGE
 function createSMIMEARecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-255
     const usage = createTextField({
         label: 'Usage',
         name: 'usage',
@@ -495,6 +522,7 @@ function createSMIMEARecord(){
     });
     field.appendChild(usage);
 
+    //NUMBER 0-255
     const selector = createTextField({
         label: 'Selector',
         name: 'selector',
@@ -502,6 +530,7 @@ function createSMIMEARecord(){
     });
     field.appendChild(selector);
 
+    //NUMBER 0-255
     const matchingType = createTextField({
         label: 'Flags',
         name: 'matching_type',
@@ -511,6 +540,7 @@ function createSMIMEARecord(){
 
     recordContent.appendChild(field);
 
+    //TEXT AREA hex
     const certificate = createTextField({
         label: 'Certificate',
         name: 'certificate',
@@ -519,9 +549,11 @@ function createSMIMEARecord(){
     recordContent.appendChild(certificate);
 }
 
+//CHANGE
 function createSRVRecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-65535
     const priority = createTextField({
         label: 'Priority',
         name: 'priority',
@@ -529,6 +561,7 @@ function createSRVRecord(){
     });
     field.appendChild(priority);
 
+    //NUMBER 0-65535
     const weight = createTextField({
         label: 'Weight',
         name: 'weight',
@@ -536,6 +569,7 @@ function createSRVRecord(){
     });
     field.appendChild(weight);
 
+    //NUMBER 0-65535
     const port = createTextField({
         label: 'Port',
         name: 'port',
@@ -553,9 +587,11 @@ function createSRVRecord(){
     recordContent.appendChild(target);
 }
 
+//CHANGE
 function createSSHFPRecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-255
     const algorithm = createTextField({
         label: 'Algorithm',
         name: 'algorithm',
@@ -563,6 +599,7 @@ function createSSHFPRecord(){
     });
     field.appendChild(algorithm);
 
+    //NUMBER 0-255
     const sshfp_type = createTextField({
         label: 'Type',
         name: 'sshfp_type',
@@ -572,6 +609,7 @@ function createSSHFPRecord(){
 
     recordContent.appendChild(field);
 
+    //TEXT AREA hex
     const fingerprint = createTextField({
         label: 'Fingerprint',
         name: 'fingerprint',
@@ -580,9 +618,11 @@ function createSSHFPRecord(){
     recordContent.appendChild(fingerprint);
 }
 
+//CHANGE
 function createSVCBRecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-65535
     const priority = createTextField({
         label: 'Priority',
         name: 'priority',
@@ -607,9 +647,11 @@ function createSVCBRecord(){
     recordContent.appendChild(field);
 }
 
+//CHANGE
 function createTLSARecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-255
     const usage = createTextField({
         label: 'Usage',
         name: 'usage',
@@ -617,6 +659,7 @@ function createTLSARecord(){
     });
     field.appendChild(usage);
 
+    //NUMBER 0-255
     const selector = createTextField({
         label: 'Selector',
         name: 'selector',
@@ -624,6 +667,7 @@ function createTLSARecord(){
     });
     field.appendChild(selector);
 
+    //NUMBER 0-255
     const matching_type = createTextField({
         label: 'Matching Type',
         name: 'matching_type',
@@ -633,6 +677,7 @@ function createTLSARecord(){
 
     recordContent.appendChild(field);
 
+    //TEXT AREA hex
     const certificate = createTextField({
         label: 'Certificate',
         name: 'certificate',
@@ -641,7 +686,9 @@ function createTLSARecord(){
     recordContent.appendChild(certificate);
 }
 
+//CHANGE
 function createTXTRecord(){
+    //TEXT AREA
     const content = createTextField({
         label: 'Content',
         name: 'content',
@@ -650,9 +697,11 @@ function createTXTRecord(){
     recordContent.appendChild(content);
 }
 
+//CHANGE
 function createURIRecord(){
     const field = document.createElement('field');
 
+    //NUMBER 0-255
     const priority = createTextField({
         label: 'Priority',
         name: 'priority',
@@ -660,6 +709,7 @@ function createURIRecord(){
     });
     field.appendChild(priority);
 
+    //NUMBER 0-65535
     const weight = createTextField({
         label: 'Weight',
         name: 'weight',
