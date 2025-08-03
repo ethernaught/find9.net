@@ -93,27 +93,27 @@ formType.onchange = function(e){
             break;
             
         case RecordTypes.SRV:
-            console.log('SRV');
+            createSRVRecord();
             break;
             
         case RecordTypes.SSHFP:
-            console.log('SSHFP');
+            createSSHFPRecord();
             break;
             
         case RecordTypes.SVCB:
-            console.log('SVCB');
+            createSVCBRecord();
             break;
             
         case RecordTypes.TLSA:
-            console.log('TLSA');
+            createTLSARecord();
             break;
             
         case RecordTypes.TXT:
-            console.log('TXT');
+            createTXTRecord();
             break;
             
         case RecordTypes.URI:
-            console.log('URI');
+            createURIRecord();
             break;
     }
 };
@@ -486,5 +486,163 @@ function createSMIMEARecord(){
         required: true
     });
     recordContent.appendChild(certificate);
+}
+
+function createSRVRecord(){
+    const field = document.createElement('field');
+
+    const priority = createTextField({
+        label: 'Priority',
+        name: 'priority',
+        required: true
+    });
+    field.appendChild(priority);
+
+    const weight = createTextField({
+        label: 'Weight',
+        name: 'weight',
+        required: true
+    });
+    field.appendChild(weight);
+
+    const port = createTextField({
+        label: 'Port',
+        name: 'port',
+        required: true
+    });
+    field.appendChild(port);
+
+    recordContent.appendChild(field);
+
+    const target = createTextField({
+        label: 'Target',
+        name: 'target',
+        required: true
+    });
+    recordContent.appendChild(target);
+}
+
+function createSSHFPRecord(){
+    const field = document.createElement('field');
+
+    const algorithm = createTextField({
+        label: 'Algorithm',
+        name: 'algorithm',
+        required: true
+    });
+    field.appendChild(algorithm);
+
+    const sshfp_type = createTextField({
+        label: 'Type',
+        name: 'sshfp_type',
+        required: true
+    });
+    field.appendChild(sshfp_type);
+
+    recordContent.appendChild(field);
+
+    const fingerprint = createTextField({
+        label: 'Fingerprint',
+        name: 'fingerprint',
+        required: true
+    });
+    recordContent.appendChild(fingerprint);
+}
+
+function createSVCBRecord(){
+    const field = document.createElement('field');
+
+    const priority = createTextField({
+        label: 'Priority',
+        name: 'priority',
+        required: true
+    });
+    field.appendChild(priority);
+
+    const target = createTextField({
+        label: 'Target',
+        name: 'target',
+        required: true
+    });
+    field.appendChild(target);
+
+    const value = createTextField({
+        label: 'Value',
+        name: 'value',
+        required: true
+    });
+    field.appendChild(value);
+
+    recordContent.appendChild(field);
+}
+
+function createTLSARecord(){
+    const field = document.createElement('field');
+
+    const usage = createTextField({
+        label: 'Usage',
+        name: 'usage',
+        required: true
+    });
+    field.appendChild(usage);
+
+    const selector = createTextField({
+        label: 'Selector',
+        name: 'selector',
+        required: true
+    });
+    field.appendChild(selector);
+
+    const matching_type = createTextField({
+        label: 'Matching Type',
+        name: 'matching_type',
+        required: true
+    });
+    field.appendChild(matching_type);
+
+    recordContent.appendChild(field);
+
+    const certificate = createTextField({
+        label: 'Certificate',
+        name: 'certificate',
+        required: true
+    });
+    recordContent.appendChild(certificate);
+}
+
+function createTXTRecord(){
+    const content = createTextField({
+        label: 'Content',
+        name: 'content',
+        required: true
+    });
+    recordContent.appendChild(content);
+}
+
+function createURIRecord(){
+    const field = document.createElement('field');
+
+    const priority = createTextField({
+        label: 'Priority',
+        name: 'priority',
+        required: true
+    });
+    field.appendChild(priority);
+
+    const weight = createTextField({
+        label: 'Weight',
+        name: 'weight',
+        required: true
+    });
+    field.appendChild(weight);
+
+    recordContent.appendChild(field);
+
+    const target = createTextField({
+        label: 'Target',
+        name: 'target',
+        required: true
+    });
+    recordContent.appendChild(target);
 }
 
