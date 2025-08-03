@@ -69,7 +69,7 @@ formType.onchange = function(e){
             break;
             
         case RecordTypes.LOC:
-            console.log('LOC');
+            createLOCRecord();
             break;
             
         case RecordTypes.MX:
@@ -281,6 +281,96 @@ function createHTTPSRecord(){
         required: true
     });
     field.appendChild(value);
+
+    recordContent.appendChild(field);
+}
+
+function createLOCRecord(){
+    let field = document.createElement('field');
+
+    let degrees = createTextField({
+        label: 'Degrees',
+        name: 'degrees',
+        required: true
+    });
+    field.appendChild(degrees);
+
+    let minutes = createTextField({
+        label: 'Minutes',
+        name: 'minutes',
+        required: true
+    });
+    field.appendChild(minutes);
+
+    let seconds = createTextField({
+        label: 'Seconds',
+        name: 'seconds',
+        required: true
+    });
+    field.appendChild(seconds);
+
+    //SELECT DIRECTION
+
+    recordContent.appendChild(field);
+
+
+    field = document.createElement('field');
+
+    degrees = createTextField({
+        label: 'Degrees',
+        name: 'degrees',
+        required: true
+    });
+    field.appendChild(degrees);
+
+    minutes = createTextField({
+        label: 'Minutes',
+        name: 'minutes',
+        required: true
+    });
+    field.appendChild(minutes);
+
+    seconds = createTextField({
+        label: 'Seconds',
+        name: 'seconds',
+        required: true
+    });
+    field.appendChild(seconds);
+
+    //SELECT DIRECTION
+
+    recordContent.appendChild(field);
+
+
+    field = document.createElement('field');
+
+    const horizontal = createTextField({
+        label: 'Horizontal',
+        name: 'horizontal',
+        required: true
+    });
+    field.appendChild(horizontal);
+
+    const vertical = createTextField({
+        label: 'Vertical',
+        name: 'vertical',
+        required: true
+    });
+    field.appendChild(vertical);
+
+    const altitude = createTextField({
+        label: 'Altitude',
+        name: 'altitude',
+        required: true
+    });
+    field.appendChild(altitude);
+
+    const size = createTextField({
+        label: 'Size',
+        name: 'size',
+        required: true
+    });
+    field.appendChild(size);
 
     recordContent.appendChild(field);
 }
