@@ -215,8 +215,8 @@ function createCERTRecord(){
     recordContent.appendChild(field);
 
     //TEXT AREA (base64)
-    const certificate = createTextField({
-        label: 'Certificate',
+    const certificate = createTextArea({
+        label: 'Certificate (Base64)',
         name: 'certificate',
         required: true
     });
@@ -257,8 +257,8 @@ function createDNSKEYRecord(){
     recordContent.appendChild(field);
 
     //TEXT AREA BASE64
-    const publicKey = createTextField({
-        label: 'Public Key',
+    const publicKey = createTextArea({
+        label: 'Public Key (Base64)',
         name: 'publicKey',
         required: true
     });
@@ -290,8 +290,8 @@ function createDSRecord(){
     recordContent.appendChild(field);
 
     //TEXT AREA HEX
-    const digest = createTextField({
-        label: 'Digest',
+    const digest = createTextArea({
+        label: 'Digest (Hex)',
         name: 'digest',
         required: true
     });
@@ -541,8 +541,8 @@ function createSMIMEARecord(){
     recordContent.appendChild(field);
 
     //TEXT AREA hex
-    const certificate = createTextField({
-        label: 'Certificate',
+    const certificate = createTextArea({
+        label: 'Certificate (Hex)',
         name: 'certificate',
         required: true
     });
@@ -610,8 +610,8 @@ function createSSHFPRecord(){
     recordContent.appendChild(field);
 
     //TEXT AREA hex
-    const fingerprint = createTextField({
-        label: 'Fingerprint',
+    const fingerprint = createTextArea({
+        label: 'Fingerprint (Hex)',
         name: 'fingerprint',
         required: true
     });
@@ -678,8 +678,8 @@ function createTLSARecord(){
     recordContent.appendChild(field);
 
     //TEXT AREA hex
-    const certificate = createTextField({
-        label: 'Certificate',
+    const certificate = createTextArea({
+        label: 'Certificate (Hex)',
         name: 'certificate',
         required: true
     });
@@ -688,8 +688,7 @@ function createTLSARecord(){
 
 //CHANGE
 function createTXTRecord(){
-    //TEXT AREA
-    const content = createTextField({
+    const content = createTextArea({
         label: 'Content',
         name: 'content',
         required: true

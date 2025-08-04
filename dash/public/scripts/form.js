@@ -59,6 +59,24 @@ function createTextField(data){
     return textField;
 }
 
+function createTextArea(data){
+    const textField = document.createElement('text-field');
+    textField.setAttribute('label', data.label);
+    textField.setAttribute('name', data.name);
+
+    const textArea = document.createElement('textarea');
+    textArea.name = data.name;
+
+    if(data.required){
+        textField.setAttribute('required', data.required);
+        textArea.required = data.required;
+    }
+
+    textField.appendChild(textArea);
+
+    return textField;
+}
+
 function createSelect(data){
     const select = document.createElement('fl-select');
     select.setAttribute('tabindex', '0');
