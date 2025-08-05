@@ -30,7 +30,7 @@ const CaaTags = {
     HOSTNAMES: 'HOSTNAMES',
     WILDCARDS: 'WILDCARDS',
     VIOLATION_REPORTS: 'VIOLATION_REPORTS'
-}
+};
 
 /*
 addRecordButton.onclick = function(e){

@@ -305,6 +305,22 @@ content header h1 {
 
 
 
+
+
+
+popup {
+    display: none;
+    position: fixed;
+    left: 0;
+    width: 100%;
+    min-height: calc(100vh - var(--top));
+    background-color: var(--background-secondary);
+}
+
+
+
+
+
 footer {
     position: relative;
     display: flex;

@@ -6,8 +6,6 @@
                     <h3>Records</h3>
                 </header>
 
-<%- include('../../../fragments/add-record') %>
-
                 <fl-table>
                     <fl-head>
                         <row>
@@ -52,15 +50,16 @@
                     </fl-body>
                 </fl-table>
 
-                <button id='add-record' class='icon-with-text'>
+                <a class='icon-with-text' href='#add'>
                     <svg viewBox='0 0 24 24'>
                         <path d='M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z' />
                     </svg>
                     Add Record
-                </button>
+                </a>
 
                 <script src='/scripts/main.js'></script>
-                <script src='/scripts/domain/dns/record.js'></script>
             </content>
 
+<%- include('../../../fragments/add-record') %>
+            <script src='/scripts/domain/dns/record.js'></script>
 <%- include('../../../fragments/footer') %>

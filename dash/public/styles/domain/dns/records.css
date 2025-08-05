@@ -1,3 +1,7 @@
+popup#add:target {
+    display: block;
+}
+
 fl-head cell.checkbox,
         fl-body cell.checkbox {
     min-width: unset;
@@ -27,7 +31,7 @@ fl-head cell.checkbox input[type='checkbox']:checked ~ label svg path,
     d: path('M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z');
 }
 
-button.icon-with-text {
+a.icon-with-text {
     position: absolute;
     display: flex;
     right: 20px;
@@ -40,14 +44,15 @@ button.icon-with-text {
     background: var(--text-primary);
     border: none;
     border-radius: 10px;
+    text-decoration: none;
     cursor: pointer;
 }
 
-button.icon-with-text:hover {
+a.icon-with-text:hover {
     background: var(--text-secondary);
 }
 
-button.icon-with-text svg {
+a.icon-with-text svg {
     display: block;
     height: 1.5rem;
     fill: var(--background);
