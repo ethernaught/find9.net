@@ -1,4 +1,8 @@
-popup#add:target {
+popup:target {
+    display: block;
+}
+
+popup#edit:target {
     display: block;
 }
 
