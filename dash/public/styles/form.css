@@ -150,7 +150,9 @@ fl-options {
     position: absolute;
     display: none;
     top: 100%;
+    left: -1px;
     width: inherit;
+    border: solid 1px var(--background-shimmer);
     background: var(--background-shimmer);
     overflow-y: auto;
     max-height: 300px;
