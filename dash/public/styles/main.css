@@ -1,6 +1,5 @@
 :root {
     --min-width: 800px;
-    --max-content-width: 1300px;
     --top: 70px;
     --sidebar: 250px;
 
@@ -179,10 +178,6 @@ filler {
     flex: 1 1 1e-09px;
 }
 
-form {
-    margin: 0;
-}
-
 input[type='radio'],
         input[type='hidden'],
         input[type='checkbox'] {
@@ -308,14 +303,6 @@ content header h1 {
 
 
 
-popup {
-    display: none;
-    position: fixed;
-    left: 0;
-    width: 100%;
-    min-height: calc(100vh - var(--top));
-    background-color: var(--background-secondary);
-}
 
 
 
@@ -338,7 +325,6 @@ footer {
 footer nav {
     display: flex;
     width: 100%;
-    max-width: var(--max-content-width);
     margin-bottom: 60px;
 }
 
@@ -396,7 +382,6 @@ footer li a:hover {
 footer year {
     display: block;
     width: 100%;
-    max-width: var(--max-content-width);
     height: 30px;
     padding-top: 20px;
     color: var(--white);

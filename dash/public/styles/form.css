@@ -1,7 +1,10 @@
 form {
     display: flex;
-    flex-direction: column;
+    max-width: 1000px;
+    min-width: var(--min-width);
     padding: 20px;
+    margin: 0 auto;
+    flex-direction: column;
     align-items: start;
     gap: 20px;
 }
@@ -11,6 +14,10 @@ field {
     width: 100%;
     flex: 1;
     gap: 20px;
+}
+
+field.buttons {
+    justify-content: flex-end;
 }
 
 text-field {
@@ -172,4 +179,21 @@ fl-option {
 
 fl-option:hover {
     background-color: var(--background);
+}
+
+button[type='submit'] {
+    display: block;
+    padding: 12.5px 15px;
+    font-size: 1rem;
+    font-weight: bold;
+    color: var(--text-primary);
+    background: var(--primary);
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+button[type='submit']:hover {
+    background: var(--secondary);
 }

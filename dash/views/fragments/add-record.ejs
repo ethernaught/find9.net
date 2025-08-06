@@ -1,4 +1,4 @@
-<popup id='add'>
+<tab id='add'>
     <form action='https://api.' method='POST' onsubmit='' target='hidden-frame'>
         <field>
             <fl-select id='form-type' label='Type' name='type' required>
@@ -47,8 +47,13 @@
         </field>
 
         <content id='record-content'></content>
+
+        <field class='buttons'>
+            <a class='button' href='#'>Cancel</a>
+            <button type='submit'>Submit</button>
+        </field>
     </form>
     <iframe name='hidden-frame'></iframe>
 
     <script src='/scripts/form.js'></script>
-</popup>
+</tab>
