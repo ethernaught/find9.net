@@ -189,7 +189,7 @@ button[type='submit'] {
     color: var(--text-primary);
     background: var(--primary);
     border: none;
-    border-radius: 10px;
+    border-radius: 7.5px;
     text-decoration: none;
     cursor: pointer;
 }

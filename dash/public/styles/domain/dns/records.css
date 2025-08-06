@@ -46,7 +46,7 @@ a.button {
     font-weight: bold;
     color: var(--background);
     background: var(--text-primary);
-    border-radius: 10px;
+    border-radius: 7.5px;
     text-decoration: none;
     cursor: pointer;
 }
@@ -62,7 +62,7 @@ a.icon-with-text {
     font-weight: bold;
     color: var(--background);
     background: var(--text-primary);
-    border-radius: 10px;
+    border-radius: 7.5px;
     text-decoration: none;
     cursor: pointer;
 }
