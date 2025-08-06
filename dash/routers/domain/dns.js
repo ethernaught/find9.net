@@ -11,7 +11,6 @@ exports.getRouter = () => {
             uniqid: uuidv4,
             styles: [
                 'table',
-                'form',
                 'domain/dns/records'
             ],
             data: {
@@ -34,6 +33,21 @@ exports.getRouter = () => {
                         ttl: 'Auto'
                     }
                 ]
+            }
+        });
+    });
+
+    router.get('/records/add', (req, res) => {
+        res.render('layouts/domain/dns/records/add', {
+            title: `${req.params.domain} | DNS | Records`,
+            page: `/domain/${req.params.domain}/dns/records`,
+            uniqid: uuidv4,
+            styles: [
+                'form',
+                'domain/dns/records'
+            ],
+            data: {
+                domain: req.params.domain
             }
         });
     });

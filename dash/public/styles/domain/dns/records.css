@@ -1,15 +1,3 @@
-tab {
-    display: none;
-}
-
-tab:target {
-    display: block;
-}
-
-body:not(:has(tab:target)) tab#main {
-    display: block;
-}
-
 fl-head cell.checkbox,
         fl-body cell.checkbox {
     min-width: unset;
