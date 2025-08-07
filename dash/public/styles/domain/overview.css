@@ -6,7 +6,6 @@ content {
 content section {
     display: flex;
     min-width: calc((var(--min-width) / 3) * 2);
-    flex: 1;
     flex-direction: column;
     gap: 20px;
 }
