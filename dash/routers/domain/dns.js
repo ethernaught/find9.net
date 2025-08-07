@@ -52,6 +52,21 @@ exports.getRouter = () => {
         });
     });
 
+    router.get('/records/edit', (req, res) => {
+        res.render('layouts/domain/dns/records/edit', {
+            title: `${req.params.domain} | DNS | Records`,
+            page: `/domain/${req.params.domain}/dns/records`,
+            uniqid: uuidv4,
+            styles: [
+                'form',
+                'domain/dns/records'
+            ],
+            data: {
+                domain: req.params.domain
+            }
+        });
+    });
+
     router.get('/analytics', (req, res) => {
         res.render('layouts/domain/dns/analytics', {
             title: `${req.params.domain} | DNS | Analytics`,
