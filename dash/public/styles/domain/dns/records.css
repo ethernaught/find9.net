@@ -1,3 +1,7 @@
+content {
+    flex-direction: column;
+}
+
 fl-head cell.checkbox,
         fl-body cell.checkbox {
     min-width: unset;

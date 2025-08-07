@@ -13,7 +13,6 @@ content section {
 
 content section:nth-of-type(1) {
     width: 60%;
-    flex: 1;
 }
 
 radio-header {
