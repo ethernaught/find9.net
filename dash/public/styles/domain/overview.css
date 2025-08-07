@@ -1,3 +1,21 @@
+content {
+    flex-wrap: wrap;
+    flex-direction: unset !important;
+}
+
+content section {
+    display: flex;
+    min-width: calc((var(--min-width) / 3) * 2);
+    flex: 1;
+    flex-direction: column;
+    gap: 20px;
+}
+
+content section:nth-of-type(1) {
+    width: 60%;
+    flex: 1;
+}
+
 radio-header {
     display: flex;
     gap: 20px;

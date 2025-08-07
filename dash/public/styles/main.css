@@ -273,6 +273,7 @@ section > content {
     display: flex;
     flex: 1;
     flex-direction: column;
+    align-content: flex-start;
     gap: 20px;
     height: calc(100vh - var(--top) - 55px);
     background-color: var(--background-secondary);
@@ -283,6 +284,7 @@ section > content {
 
 content header {
     display: flex;
+    width: 100%;
     flex-direction: column;
     gap: 5px;
 }

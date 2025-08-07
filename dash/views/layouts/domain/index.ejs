@@ -10,31 +10,32 @@
                     <h3><%= data.domain %></h3>
                 </header>
 
-                <input id='<% const uuid_a = uniqid(); %><%= uuid_a %>' name='<% const uuid_d = uniqid(); %><%= uuid_d %>' type='radio' item='0' checked>
-                <input id='<% const uuid_b = uniqid(); %><%= uuid_b %>' name='<%= uuid_d %>' type='radio' item='1'>
-                <input id='<% const uuid_c = uniqid(); %><%= uuid_c %>' name='<%= uuid_d %>' type='radio' item='2'>
+                <section>
+                    <input id='<% const uuid_a = uniqid(); %><%= uuid_a %>' name='<% const uuid_d = uniqid(); %><%= uuid_d %>' type='radio' item='0' checked>
+                    <input id='<% const uuid_b = uniqid(); %><%= uuid_b %>' name='<%= uuid_d %>' type='radio' item='1'>
+                    <input id='<% const uuid_c = uniqid(); %><%= uuid_c %>' name='<%= uuid_d %>' type='radio' item='2'>
 
-                <radio-header>
-                    <label for='<%= uuid_a %>' item='0'>24 Hours</label>
-                    <label for='<%= uuid_b %>' item='1'>7 Days</label>
-                    <label for='<%= uuid_c %>' item='2'>30 Days</label>
-                    <filler></filler>
-                    <span>JULY 22 - JULY 29</span>
-                </radio-header>
+                    <radio-header>
+                        <label for='<%= uuid_a %>' item='0'>24 Hours</label>
+                        <label for='<%= uuid_b %>' item='1'>7 Days</label>
+                        <label for='<%= uuid_c %>' item='2'>30 Days</label>
+                        <filler></filler>
+                        <span>JULY 22 - JULY 29</span>
+                    </radio-header>
 
 <%
     const points = [];
     for(const i in data.graph){
 %>
-                <radio-section item='<%= i %>'>
+                    <radio-section item='<%= i %>'>
 <%
         for(const d of data.graph[i].data){
             points.push(d.points);
 %>
-                    <div class='graph'>
-                        <key>
-                            <h2><%= d.title %></h2>
-                            <h3><%
+                        <div class='graph'>
+                            <key>
+                                <h2><%= d.title %></h2>
+                                <h3><%
             const total = d.points.reduce((sum, value) => sum + value, 0);
             switch(d.type){
                 case 'number':
@@ -50,23 +51,25 @@
                     break;
             }
 %></h3>
-                        </key>
-                        <svg viewBox='0 0 <%= graphWidth %> <%= graphHeight %>'></svg>
-                    </div>
+                            </key>
+                            <svg viewBox='0 0 <%= graphWidth %> <%= graphHeight %>'></svg>
+                        </div>
 <%
         }
 %>
-                </radio-section>
+                    </radio-section>
 <%
     }
 %>
-                <script>
-                    const graphWidth = <%= graphWidth %>;
-                    const graphHeight = <%= graphHeight %>;
-                    const points = <%- JSON.stringify(points) %>;
-                </script>
-                <script src='/scripts/graph.js'></script>
-                <script src='/scripts/domain/overview.js'></script>
+                    <script>
+                        const graphWidth = <%= graphWidth %>;
+                        const graphHeight = <%= graphHeight %>;
+                        const points = <%- JSON.stringify(points) %>;
+                    </script>
+                    <script src='/scripts/graph.js'></script>
+                    <script src='/scripts/domain/overview.js'></script>
+                </section>
+                <section></section>
             </content>
 
 <%- include('../../fragments/footer') %>
